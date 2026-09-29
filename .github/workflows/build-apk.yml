@@ -1,4 +1,5 @@
-﻿name: Build Android APK
+﻿@"
+name: Build Android APK
 
 on:
   push:
@@ -28,8 +29,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android SDK Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -39,12 +41,16 @@ jobs:
         env:
           EXPO_NO_GIT_STATUS: 1
 
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x android/gradlew
+
       - name: Build Debug APK with Gradle
         working-directory: android
-        run: ./gradlew assembleDebug --stacktrace
+        run: ./gradlew assembleDebug --stacktrace --no-daemon
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: itsmyturn-app-debug
           path: android/app/build/outputs/apk/debug/*.apk
+"@ | Out-File -FilePath ".github\workflows\build-apk.yml" -Encoding utf8
