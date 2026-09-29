@@ -40,14 +40,14 @@ jobs:
         env:
           EXPO_NO_GIT_STATUS: 1
 
-      - name: Fix AGP 8 SoftwareComponent for Expo Modules
+      - name: Fix AGP 8 SoftwareComponent on Library Subprojects
         run: |
           cat << 'EOF' >> android/build.gradle
 
-          allprojects {
-              plugins.withId("com.android.library") {
-                  project.android {
-                      publishing {
+          subprojects { subproject ->
+              subproject.plugins.withId("com.android.library") {
+                  subproject.extensions.configure("android") { androidExt ->
+                      androidExt.publishing {
                           singleVariant("release")
                       }
                   }
@@ -60,7 +60,7 @@ jobs:
 
       - name: Build Debug APK with Gradle
         working-directory: android
-        run: ./gradlew assembleDebug --stacktrace --no-daemon -Dorg.gradle.jvmargs="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
+        run: ./gradlew :app:assembleDebug --stacktrace --no-daemon -Dorg.gradle.jvmargs="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
