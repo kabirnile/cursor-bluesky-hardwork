@@ -1,5 +1,4 @@
-﻿@"
-name: Build Android APK
+﻿name: Build Android APK
 
 on:
   push:
@@ -53,4 +52,4 @@ jobs:
         with:
           name: itsmyturn-app-debug
           path: android/app/build/outputs/apk/debug/*.apk
-"@ | Out-File -FilePath ".github\workflows\build-apk.yml" -Encoding utf8
+          
