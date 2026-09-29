@@ -1,4 +1,5 @@
-﻿name: Build Android APK
+﻿@'
+name: Build Android APK
 
 on:
   push:
@@ -40,20 +41,20 @@ jobs:
         env:
           EXPO_NO_GIT_STATUS: 1
 
-      - name: Fix AGP 8 SoftwareComponent on Library Subprojects
+      - name: Fix AGP 8 SoftwareComponent Crash
         run: |
-          cat << 'EOF' >> android/build.gradle
-
-          subprojects { subproject ->
-              subproject.plugins.withId("com.android.library") {
-                  subproject.extensions.configure("android") { androidExt ->
-                      androidExt.publishing {
-                          singleVariant("release")
-                      }
-                  }
-              }
-          }
-          EOF
+          find . -name "build.gradle" -type f | while read file; do
+            if grep -q -E "com\.android\.library|expo\.modules\.plugin" "$file"; then
+              echo "" >> "$file"
+              echo "android { publishing { singleVariant('release'); singleVariant('debug') } }" >> "$file"
+            fi
+          done
+          find . -name "build.gradle.kts" -type f | while read file; do
+            if grep -q -E "com\.android\.library|expo\.modules\.plugin" "$file"; then
+              echo "" >> "$file"
+              echo 'android { publishing { singleVariant("release"); singleVariant("debug") } }' >> "$file"
+            fi
+          done
 
       - name: Make Gradle Wrapper Executable
         run: chmod +x android/gradlew
@@ -67,4 +68,4 @@ jobs:
         with:
           name: itsmyturn-app-debug
           path: android/app/build/outputs/apk/debug/*.apk
-          
+'@ | Out-File -FilePath ".github\workflows\build-apk.yml" -Encoding utf8
