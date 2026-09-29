@@ -44,7 +44,7 @@ function SigninDialogInner({}: {control: Dialog.DialogOuterProps['control']}) {
 
   return (
     <Dialog.ScrollableInner
-      label={_(msg`Sign in to Bluesky or create a new account`)}
+      label={_(msg`Sign in to It's My Turn or create a new account`)}
       style={[a.w_full, gtMobile && web({width: 'auto', maxWidth: 420})]}>
       <View style={[!IS_NATIVE && a.p_2xl]}>
         <View
@@ -57,7 +57,7 @@ function SigninDialogInner({}: {control: Dialog.DialogOuterProps['control']}) {
           ]}>
           <Logo allowVariants={false} width={36} />
           <View style={{paddingTop: 6}}>
-            <Logotype width={120} fill={t.atoms.text.color} />
+            <Logotype width={130} fill={t.atoms.text.color} />
           </View>
         </View>
 

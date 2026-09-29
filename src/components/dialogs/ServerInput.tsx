@@ -141,9 +141,9 @@ function DialogInner({
           <SegmentedControl.Item
             testID="bskyServiceSelectBtn"
             value={BSKY_SERVICE}
-            label={_(msg`Bluesky`)}>
+            label={_(msg`It's My Turn`)}>
             <SegmentedControl.ItemText>
-              {_(msg`Bluesky`)}
+              {_(msg`It's My Turn`)}
             </SegmentedControl.ItemText>
           </SegmentedControl.Item>
           <SegmentedControl.Item
@@ -160,9 +160,9 @@ function DialogInner({
           <View role="tabpanel">
             <Admonition type="tip">
               <Trans>
-                Bluesky is an open network where you can choose your own
-                provider. If you're new here, we recommend sticking with the
-                default Bluesky Social option.
+                It's My Turn is powered by dedicated network infrastructure. If
+                you're new here, we recommend sticking with the default It's My
+                Turn option.
               </Trans>
             </Admonition>
           </View>
@@ -212,8 +212,8 @@ function DialogInner({
               </Trans>
             ) : (
               <Trans>
-                Bluesky is an open network where you can choose your hosting
-                provider. If you're a developer, you can host your own server.
+                It's My Turn connects you directly to our community. If you're a
+                developer, you can host your own server.
               </Trans>
             )}{' '}
             <InlineLinkText

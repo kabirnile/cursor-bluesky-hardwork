@@ -102,28 +102,14 @@ export const LoginForm = ({
   })
   const {gtMobile} = useBreakpoints()
 
-  /*
-   * Surface an inline error on the username field only once detection has
-   * settled on an unresolvable identifier and the user has moved on from the
-   * field. Hidden while focused so we don't nag mid-type, and it clears
-   * automatically when the identifier resolves or an override is set (both
-   * move `state.status` away from 'unresolved').
-   */
   const showUnresolvedError =
     hostingProvider.state.status === 'unresolved' && !identifierFocused
 
-  /**
-   * Performs the actual login attempt against a resolved service. Reads the
-   * password and 2FA token from the current form state, and manages
-   * `setIsProcessing` itself: it stays processing on success (the app
-   * transitions away) and clears it on any failure.
-   */
   const attemptLogin = async (service: string, fullIdent: string) => {
     const password = passwordValueRef.current
     setIsProcessing(true)
 
     try {
-      // TODO remove double login
       await login(
         {
           service,
@@ -140,10 +126,6 @@ export const LoginForm = ({
     } catch (err) {
       const errMsg = String(err)
       setIsProcessing(false)
-      /*
-       * `LexAuthFactorError` is what `PasswordSession.login` throws when the
-       * server demands an email 2FA token.
-       */
       if (err instanceof LexAuthFactorError) {
         setIsAuthFactorTokenNeeded(true)
       } else {
@@ -169,8 +151,6 @@ export const LoginForm = ({
           )
         } else {
           logger.warn('Failed to login', {error: errMsg})
-          /* the error object, not its stringification: cleanError only
-           * extracts the clean server message from a live LexError */
           setError(cleanError(err))
         }
       }
@@ -201,12 +181,11 @@ export const LoginForm = ({
 
     setIsProcessing(true)
 
-    // try to guess the handle if the user just gave their own username
     let fullIdent = identifier
     if (
-      !identifier.includes('@') && // not an email
-      !identifier.includes('.') && // not a domain
-      !identifier.startsWith('did:') && // not a DID
+      !identifier.includes('@') &&
+      !identifier.includes('.') &&
+      !identifier.startsWith('did:') &&
       serviceDescription &&
       serviceDescription.availableUserDomains.length > 0
     ) {
@@ -224,14 +203,6 @@ export const LoginForm = ({
       }
     }
 
-    /*
-     * Await autodetection against the current identifier before logging in.
-     * If detection is still in flight this waits for it (bypassing the
-     * debounce); otherwise it resolves near-instantly from cache. Falls back
-     * to the default service on anything unresolvable, but a network error
-     * throws - in that case we must NOT log in, since we can't be sure which
-     * server to send the password to.
-     */
     let service: string
     let did: string | null
     try {
@@ -243,20 +214,10 @@ export const LoginForm = ({
       return
     }
 
-    /*
-     * If detection landed on a non-Bluesky server, confirm before sending the
-     * password, to guard against typosquatted handles capturing credentials. A
-     * manual override is skipped: choosing a server by hand is explicit user
-     * consent, so only auto-detected hosts need the guard. An identity the
-     * user has signed into on this device before is also trusted: a
-     * typosquatted handle would resolve to the attacker's different DID, so
-     * DID membership in the account list is the correct skip condition
-     * (handles and hosts are not stable keys - service URLs drift and pdsUrl
-     * is often unset).
-     */
     const isKnownAccount =
       did != null && accounts.some(account => account.did === did)
     const needsConfirmation =
+      service !== DEFAULT_SERVICE &&
       !isBlueskyHostedUrl(service) &&
       hostingProvider.state.status !== 'overridden' &&
       !isKnownAccount
@@ -333,7 +294,7 @@ export const LoginForm = ({
             onSubmitEditing={() => {
               passwordRef.current?.focus()
             }}
-            blurOnSubmit={false} // prevents flickering due to onSubmitEditing going to next field
+            blurOnSubmit={false}
             editable={!isProcessing}
             accessibilityHint={l`Enter the username or email address you used when you created your account`}
           />
@@ -385,7 +346,7 @@ export const LoginForm = ({
               setHasPassword(!!v)
             }}
             onSubmitEditing={() => void onPressNext()}
-            blurOnSubmit={false} // HACK: https://github.com/facebook/react-native/issues/21911#issuecomment-558343069 Keyboard blur behavior is now handled in onSubmitEditing
+            blurOnSubmit={false}
             editable={!isProcessing}
             accessibilityHint={l`Enter your password`}
             onLayout={
@@ -393,13 +354,6 @@ export const LoginForm = ({
                 ? () => {
                     if (hasFocusedOnce.current) return
                     hasFocusedOnce.current = true
-                    // kinda dumb, but if we use `autoFocus` to focus an
-                    // input, it happens before the password input gets
-                    // rendered. this breaks the password autofill on iOS (it
-                    // only does the username part). delaying it until both
-                    // inputs are rendered fixes the autofill. when a handle is
-                    // prefilled we focus the password field directly so the
-                    // user can go straight to typing it -sfn
                     if (initialHandle) {
                       passwordRef.current?.focus()
                     } else {
@@ -446,8 +400,8 @@ export const LoginForm = ({
               autoCorrect={false}
               autoComplete="one-time-code"
               returnKeyType="done"
-              blurOnSubmit={false} // prevents flickering due to onSubmitEditing going to next field
-              value={authFactorToken} // controlled input due to uncontrolled input not receiving pasted values properly
+              blurOnSubmit={false}
+              value={authFactorToken}
               onChangeText={text => {
                 setAuthFactorToken(text)
                 if (errorField) setErrorField('none')
@@ -468,11 +422,6 @@ export const LoginForm = ({
         </View>
       )}
 
-      {/*
-       * At most one error is visible at a time. The inline username error
-       * (under the field) wins; otherwise the resolution-failure error takes
-       * precedence over the generic form error.
-       */}
       {!showUnresolvedError &&
         (showResolveError ? (
           <Admonition.Outer type="error">
@@ -568,7 +517,7 @@ export const LoginForm = ({
       {IS_NATIVE && (
         <Text style={[a.text_md, native([a.text_center, a.mx_auto]), a.mt_sm]}>
           <Trans>
-            New to Bluesky?{' '}
+            New to It's My Turn?{' '}
             <InlineLinkText
               label={l`Sign up`}
               style={[a.text_md, native(a.text_center)]}
@@ -602,11 +551,6 @@ function RevealPasswordButton({
   const {t: l} = useLingui()
   const context = TextField.useTextFieldContext()
 
-  /*
-   * The icon shows the action the button performs, not the current state: an
-   * open eye when the password is hidden (tap to reveal), a crossed-out eye
-   * when it is visible (tap to hide).
-   */
   const Icon = active ? EyeSlashIcon : EyeIcon
 
   if (!hasPassword && !context.focused) return null
@@ -660,7 +604,7 @@ function HostingProviderIndicator({
         {state.status === 'detected' || state.status === 'overridden' ? (
           <Trans>Hosting provider: {toNiceHostingUrl(state.pdsUrl)}</Trans>
         ) : state.status === 'email' ? (
-          <Trans>Hosting provider: Bluesky</Trans>
+          <Trans>Hosting provider: It's My Turn</Trans>
         ) : (
           <Trans>Hosting provider</Trans>
         )}

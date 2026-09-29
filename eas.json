@@ -2,7 +2,7 @@
   "cli": {
     "version": ">=18",
     "promptToConfigurePushNotifications": false,
-    "appVersionSource": "remote"
+    "appVersionSource": "local"
   },
   "build": {
     "base": {
@@ -51,7 +51,8 @@
         "buildArtifactPaths": ["ios/build/*"]
       },
       "android": {
-        "autoIncrement": true
+        "autoIncrement": true,
+        "buildType": "app-bundle"
       },
       "channel": "production",
       "env": {
@@ -89,9 +90,6 @@
   },
   "submit": {
     "production": {
-      "ios": {
-        "ascAppId": "6444370199"
-      },
       "android": {
         "track": "production"
       }

@@ -24,20 +24,18 @@ module.exports = function (_config) {
   const IS_DEV = !IS_TESTFLIGHT && !IS_PRODUCTION
 
   const ASSOCIATED_DOMAINS = [
-    'applinks:bsky.app',
-    'applinks:staging.bsky.app',
-    'appclips:bsky.app',
-    'appclips:go.bsky.app', // Allows App Clip to work when scanning QR codes
-    // When testing local services, enter an ngrok (et al) domain here. It must use a standard HTTP/HTTPS port.
+    'applinks:itsmyturn.online',
+    'applinks:pds.itsmyturn.online',
+    'appclips:itsmyturn.online',
     ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
   ]
 
-  const UPDATES_ENABLED = IS_TESTFLIGHT || IS_PRODUCTION
+  const UPDATES_ENABLED = false
 
   const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN)
 
   const IOS_ICON_FILE =
-    PLATFORM === 'web' // web build doesn't like .icon files
+    PLATFORM === 'web'
       ? './assets/app-icons/ios_icon_default_next.png'
       : IS_TESTFLIGHT
         ? './assets/app-icons/ios_icon_testflight.icon'
@@ -46,10 +44,10 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'Bluesky',
-      slug: 'bluesky',
-      scheme: 'bluesky',
-      owner: 'blueskysocial',
+      name: "It's My Turn",
+      slug: 'itsmyturn',
+      scheme: 'itsmyturn',
+      owner: undefined,
       runtimeVersion: {
         policy: 'appVersion',
       },
@@ -58,7 +56,7 @@ module.exports = function (_config) {
       primaryColor: '#006AFF',
       ios: {
         supportsTablet: false,
-        bundleIdentifier: 'xyz.blueskyweb.app',
+        bundleIdentifier: 'online.itsmyturn.app',
         appleTeamId: process.env.EXPO_APPLE_TEAM_ID,
         config: {
           usesNonExemptEncryption: false,
@@ -76,7 +74,7 @@ module.exports = function (_config) {
             'Used to save images to your library.',
           NSPhotoLibraryUsageDescription:
             'Used for profile pictures, posts, and other kinds of content',
-          CFBundleSpokenName: 'Blue Sky',
+          CFBundleSpokenName: "It's My Turn",
           CFBundleLocalizations: [
             'en',
             'an',
@@ -125,9 +123,8 @@ module.exports = function (_config) {
         entitlements: {
           'com.apple.developer.kernel.increased-memory-limit': true,
           'com.apple.developer.kernel.extended-virtual-addressing': true,
-          'com.apple.security.application-groups': 'group.app.bsky',
+          'com.apple.security.application-groups': 'group.online.itsmyturn.app',
           'com.apple.developer.usernotifications.communication': true,
-          // 'com.apple.developer.device-information.user-assigned-device-name': true,
           'com.apple.developer.declared-age-range': true,
         },
         privacyManifests: {
@@ -192,8 +189,7 @@ module.exports = function (_config) {
           monochromeImage: './assets/icon-android-monochrome.png',
           backgroundColor: '#006AFF',
         },
-        googleServicesFile: './google-services.json',
-        package: 'xyz.blueskyweb.app',
+        package: 'online.itsmyturn.app',
         intentFilters: [
           {
             action: 'VIEW',
@@ -201,7 +197,11 @@ module.exports = function (_config) {
             data: [
               {
                 scheme: 'https',
-                host: 'bsky.app',
+                host: 'itsmyturn.online',
+              },
+              {
+                scheme: 'https',
+                host: 'pds.itsmyturn.online',
               },
               ...(IS_DEV
                 ? [
@@ -221,18 +221,7 @@ module.exports = function (_config) {
         favicon: './assets/favicon.png',
       },
       updates: {
-        url: 'https://updates.bsky.app/manifest',
-        enabled: UPDATES_ENABLED,
-        fallbackToCacheTimeout: 30000,
-        codeSigningCertificate: UPDATES_ENABLED
-          ? './code-signing/certificate.pem'
-          : undefined,
-        codeSigningMetadata: UPDATES_ENABLED
-          ? {
-              keyid: 'main',
-              alg: 'rsa-v1_5-sha256',
-            }
-          : undefined,
+        enabled: false,
         checkAutomatically: 'NEVER',
       },
       plugins: [
@@ -264,32 +253,6 @@ module.exports = function (_config) {
           'react-native-edge-to-edge',
           {android: {enforceNavigationBarContrast: false}},
         ],
-        /*
-         * Expo runs Gradle mods in reverse registration order. Keep Bitdrift
-         * before Sentry so its plugins block is prepended after Sentry's apply
-         * statement and remains at the top, as required by Gradle.
-         */
-        [
-          '@bitdrift/react-native',
-          {
-            networkInstrumentation: true,
-          },
-        ],
-        ...(USE_SENTRY
-          ? [
-              /** @type {[string, any]} */ ([
-                '@sentry/react-native/expo',
-                {
-                  organization: 'blueskyweb',
-                  project: 'app',
-                  url: 'https://sentry.io',
-                  experimental_android: {
-                    enableAndroidGradlePlugin: true,
-                  },
-                },
-              ]),
-            ]
-          : []),
         [
           'expo-build-properties',
           {
@@ -320,7 +283,7 @@ module.exports = function (_config) {
           'expo-notifications',
           {
             icon: './assets/icon-android-notification.png',
-            color: '#1185fe',
+            color: '#006AFF',
             sounds: PLATFORM === 'ios' ? ['assets/dm.aiff'] : ['assets/dm.mp3'],
           },
         ],
@@ -339,7 +302,6 @@ module.exports = function (_config) {
             fonts: [
               './assets/fonts/inter/InterVariable.woff2',
               './assets/fonts/inter/InterVariable-Italic.woff2',
-              // Android only
               './assets/fonts/inter/Inter-Regular.otf',
               './assets/fonts/inter/Inter-Italic.otf',
               './assets/fonts/inter/Inter-Medium.otf',
@@ -355,23 +317,23 @@ module.exports = function (_config) {
           'expo-splash-screen',
           {
             ios: {
-              enableFullScreenImage_legacy: true, // iOS only
-              backgroundColor: '#006AFF', // primary_500
+              enableFullScreenImage_legacy: true,
+              backgroundColor: '#006AFF',
               image: './assets/splash/splash.png',
               resizeMode: 'cover',
               dark: {
-                enableFullScreenImage_legacy: true, // iOS only
-                backgroundColor: '#002861', // primary_900
+                enableFullScreenImage_legacy: true,
+                backgroundColor: '#002861',
                 image: './assets/splash/splash-dark.png',
                 resizeMode: 'cover',
               },
             },
             android: {
-              backgroundColor: '#006AFF', // primary_500
+              backgroundColor: '#006AFF',
               image: './assets/splash/android-splash-logo-white.png',
-              imageWidth: 102, // even division of 306px
+              imageWidth: 102,
               dark: {
-                backgroundColor: '#002861', // primary_900
+                backgroundColor: '#002861',
                 image: './assets/splash/android-splash-logo-white.png',
                 imageWidth: 102,
               },
@@ -381,9 +343,6 @@ module.exports = function (_config) {
         [
           '@bsky.app/expo-dynamic-app-icon',
           {
-            /**
-             * Default set
-             */
             default_light: {
               ios: './assets/app-icons/ios_icon_legacy_light.png',
               android: './assets/app-icons/android_icon_legacy_light.png',
@@ -394,10 +353,6 @@ module.exports = function (_config) {
               android: './assets/app-icons/android_icon_legacy_dark.png',
               prerendered: true,
             },
-
-            /**
-             * Bluesky+ core set
-             */
             core_aurora: {
               ios: './assets/app-icons/ios_icon_core_aurora.png',
               android: './assets/app-icons/android_icon_core_aurora.png',
@@ -451,7 +406,7 @@ module.exports = function (_config) {
           'expo-contacts',
           {
             contactsPermission:
-              'I agree to allow Bluesky to use my contacts for friend discovery until I opt out.',
+              "I agree to allow It's My Turn to use my contacts for friend discovery until I opt out.",
           },
         ],
       ],
@@ -463,31 +418,30 @@ module.exports = function (_config) {
                 appExtensions: [
                   {
                     targetName: 'Share-with-Bluesky',
-                    bundleIdentifier: 'xyz.blueskyweb.app.Share-with-Bluesky',
+                    bundleIdentifier: 'online.itsmyturn.app.Share',
                     entitlements: {
                       'com.apple.security.application-groups': [
-                        'group.app.bsky',
+                        'group.online.itsmyturn.app',
                       ],
                     },
                   },
                   {
                     targetName: 'BlueskyNSE',
-                    bundleIdentifier: 'xyz.blueskyweb.app.BlueskyNSE',
+                    bundleIdentifier: 'online.itsmyturn.app.NSE',
                     entitlements: {
                       'com.apple.security.application-groups': [
-                        'group.app.bsky',
+                        'group.online.itsmyturn.app',
                       ],
                     },
                   },
                   {
                     targetName: 'BlueskyClip',
-                    bundleIdentifier: 'xyz.blueskyweb.app.AppClip',
+                    bundleIdentifier: 'online.itsmyturn.app.AppClip',
                   },
                 ],
               },
             },
           },
-          projectId: '55bd077a-d905-4184-9c7f-94789ba0f302',
         },
       },
       experiments: {

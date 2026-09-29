@@ -215,11 +215,11 @@ msgstr "{0, plural, one {seguint} other {seguint}}"
 msgid "{0, plural, one {post} other {posts}}"
 msgstr "{0, plural, one {publicació} other {publicacions}}"
 
-#. Number of users (always at least 25) who have joined Bluesky using a specific Starter Pack
+#. Number of users (always at least 25) who have joined it's my turn using a specific Starter Pack
 #. placeholder {0}: starterPack.joinedAllTimeCount || 0
 #: src/screens/StarterPack/StarterPackScreen.tsx:492
-msgid "{0, plural, other {# people have}} joined Bluesky via this Starter Pack!"
-msgstr "{0, plural, one {# persona s'ha unit} other {# persones s'han unit}} a Bluesky mitjançant aquest Starter Pack!"
+msgid "{0, plural, other {# people have}} joined it's my turn via this Starter Pack!"
+msgstr "{0, plural, one {# persona s'ha unit} other {# persones s'han unit}} a it's my turn mitjançant aquest Starter Pack!"
 
 #. placeholder {0}: starterPack.list.listItemCount - 4
 #: src/components/dialogs/StarterPackDialog.tsx:351
@@ -727,7 +727,7 @@ msgctxt "Displayed when there are more than 20 requests to join a group chat"
 msgid "{JOIN_REQUESTS_THRESHOLD}+ new join requests"
 msgstr "{JOIN_REQUESTS_THRESHOLD}+ noves sol·licituds per a unir-se"
 
-#. Number of users (always at least 50) who have joined Bluesky using a specific Starter Pack
+#. Number of users (always at least 50) who have joined it's my turn using a specific Starter Pack
 #: src/components/StarterPack/StarterPackCard.tsx:97
 msgid "{joinedAllTimeCount, plural, other {# users have}} joined!"
 msgstr "{joinedAllTimeCount, plural, one {}other {# usuaris s'han}} unit!"
@@ -784,12 +784,12 @@ msgid "{numMatches, plural, one {# contact found} other {# contacts found}}"
 msgstr "{numMatches, plural, one {# contacte trobat} other {# contactes trobats}}"
 
 #: src/components/NewskieDialog.tsx:116
-msgid "{profileName} joined Bluesky {timeAgoString} ago"
-msgstr "{profileName} es va unir a Bluesky fa {timeAgoString}"
+msgid "{profileName} joined it's my turn {timeAgoString} ago"
+msgstr "{profileName} es va unir a it's my turn fa {timeAgoString}"
 
 #: src/components/NewskieDialog.tsx:113
-msgid "{profileName} joined Bluesky using a Starter Pack {timeAgoString} ago"
-msgstr "{profileName} es va unir a Bluesky, utilitzant un Starter Pack, fa {timeAgoString}"
+msgid "{profileName} joined it's my turn using a Starter Pack {timeAgoString} ago"
+msgstr "{profileName} es va unir a it's my turn, utilitzant un Starter Pack, fa {timeAgoString}"
 
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
@@ -934,8 +934,8 @@ msgstr "<0>Directrius de la comunitat: Assetjament</0>"
 
 #: src/screens/Hashtag.tsx:232
 #: src/screens/Search/SearchResults.tsx:398
-msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
-msgstr "<0>Inicia la sessió</0><1> o </1><2>crea un compte</2><3> </3><4>per cercar notícies, esports, política, jocs de paraules i tot el que passa a Bluesky.</4>"
+msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on it's my turn.</4>"
+msgstr "<0>Inicia la sessió</0><1> o </1><2>crea un compte</2><3> </3><4>per cercar notícies, esports, política, jocs de paraules i tot el que passa a it's my turn.</4>"
 
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:251
 msgid "<0>Tap here to update your location with GPS.</0>"
@@ -974,8 +974,8 @@ msgid "7 days"
 msgstr "7 dies"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:27
-msgid "A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, Blacksky, and Fountain Pens"
-msgstr "Una col·lecció de canals populars que pots trobar a Bluesky, com ara News, Booksky, Game Dev, Blacksky i Fountain Pens"
+msgid "A collection of popular feeds you can find on it's my turn, including News, Booksky, Game Dev, Blacksky, and Fountain Pens"
+msgstr "Una col·lecció de canals populars que pots trobar a it's my turn, com ara News, Booksky, Game Dev, Blacksky i Fountain Pens"
 
 #: src/screens/ModerationInbox/index.tsx:204
 msgctxt "moderation-report-action"
@@ -1023,8 +1023,8 @@ msgstr "Una resposta a un missatge enviat abans que t'unissis"
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:147
-msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!\""
-msgstr "Una captura de pantalla d'una publicació de @esb.lol, que mostra que l'usuari està emetent contingut en directe a Twitch. La publicació diu: \"Hola! Estic en directe a Twitch i també estic provant l'última funció de Bluesky!\""
+msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing it's my turn's latest feature too!\""
+msgstr "Una captura de pantalla d'una publicació de @esb.lol, que mostra que l'usuari està emetent contingut en directe a Twitch. La publicació diu: \"Hola! Estic en directe a Twitch i també estic provant l'última funció de it's my turn!\""
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:121
@@ -1037,8 +1037,8 @@ msgstr "Una captura de pantalla d'una pàgina de perfil amb una icona de campana
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/DraftsAnnouncement.tsx:98
-msgid "A screenshot of the post composer with a new button next to the post button that says \"Drafts\", with a rainbow firework effect. Below, the text in the composer reads \"Hey, did you hear the news? Bluesky has drafts now!!!\"."
-msgstr "Una captura de pantalla del compositor de publicacions amb un botó nou al costat que diu \"Esborranys\", amb un efecte de focs artificials de l'arc de Sant Martí. A sota, el text del compositor diu \"Ei, estàs al cas de les novetats? Bluesky ja té esborranys!!!\"."
+msgid "A screenshot of the post composer with a new button next to the post button that says \"Drafts\", with a rainbow firework effect. Below, the text in the composer reads \"Hey, did you hear the news? it's my turn has drafts now!!!\"."
+msgstr "Una captura de pantalla del compositor de publicacions amb un botó nou al costat que diu \"Esborranys\", amb un efecte de focs artificials de l'arc de Sant Martí. A sota, el text del compositor diu \"Ei, estàs al cas de les novetats? it's my turn ja té esborranys!!!\"."
 
 #: src/components/dms/dialogs/NewChatDialog.tsx:102
 #: src/components/dms/dialogs/ShareViaChatDialog.tsx:118
@@ -1174,8 +1174,8 @@ msgid "Account unmuted"
 msgstr "Compte no silenciat"
 
 #: src/components/verification/VerifierDialog.tsx:101
-msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. These trusted verifiers are selected by Bluesky."
-msgstr "Els comptes amb una marca de verificació blava<0><1/></0>poden verificar-ne altres. Bluesky selecciona aquests verificadors de confiança."
+msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. These trusted verifiers are selected by it's my turn."
+msgstr "Els comptes amb una marca de verificació blava<0><1/></0>poden verificar-ne altres. it's my turn selecciona aquests verificadors de confiança."
 
 #: src/lib/hooks/useNotificationHandler.ts:214
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:105
@@ -1700,21 +1700,21 @@ msgstr "S'ha produït un error. {0}"
 
 #: src/components/contacts/components/HeroImage.tsx:28
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:79
-msgid "An illustration depicting user avatars flowing from a contact book into the Bluesky app"
-msgstr "Una il·lustració que representa els avatars d'usuari que flueixen des d'una llibreta de contactes fins a l'aplicació Bluesky"
+msgid "An illustration depicting user avatars flowing from a contact book into the it's my turn app"
+msgstr "Una il·lustració que representa els avatars d'usuari que flueixen des d'una llibreta de contactes fins a l'aplicació it's my turn"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:45
-msgid "An illustration of several Bluesky posts alongside repost, like, and comment icons"
-msgstr "Una il·lustració de diverses publicacions de Bluesky juntament amb icones de republicació, m'agrada i comentari"
+msgid "An illustration of several it's my turn posts alongside repost, like, and comment icons"
+msgstr "Una il·lustració de diverses publicacions de it's my turn juntament amb icones de republicació, m'agrada i comentari"
 
 #: src/components/dialogs/nuxs/InviteFriendsAnnouncement.tsx:111
-msgid "An illustration of the Bluesky app with a paper airplane flying out of it, representing inviting friends"
-msgstr "Una il·lustració de l'aplicació de Bluesky amb un avió de paper que en surt volant, que representa convidar amistats"
+msgid "An illustration of the it's my turn app with a paper airplane flying out of it, representing inviting friends"
+msgstr "Una il·lustració de l'aplicació de it's my turn amb un avió de paper que en surt volant, que representa convidar amistats"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:87
 #: src/components/verification/VerifierDialog.tsx:89
-msgid "An illustration showing that Bluesky selects trusted verifiers, and trusted verifiers in turn verify individual user accounts."
-msgstr "Una il·lustració que mostra que Bluesky selecciona verificadors de confiança i, al seu torn, els verificadors de confiança verifiquen els comptes d'usuari individuals."
+msgid "An illustration showing that it's my turn selects trusted verifiers, and trusted verifiers in turn verify individual user accounts."
+msgstr "Una il·lustració que mostra que it's my turn selecciona verificadors de confiança i, al seu torn, els verificadors de confiança verifiquen els comptes d'usuari individuals."
 
 #: src/screens/Messages/components/InviteLinkDialog.tsx:196
 msgid "An invite link lets people join this group chat without being added directly. You control who can join the chat. You can disable the link at any time."
@@ -1744,8 +1744,8 @@ msgid "An issue occurred, please try again."
 msgstr "Hi ha hagut un problema, prova-ho de nou."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:122
-msgid "An mockup of a iPhone showing the Bluesky app open to the profile of a verified user with a blue checkmark next to their display name."
-msgstr "Una maqueta d'un iPhone que mostra l'aplicació Bluesky oberta al perfil d'un usuari verificat amb una marca de verificació blava al costat del seu nom de visualització."
+msgid "An mockup of a iPhone showing the it's my turn app open to the profile of a verified user with a blue checkmark next to their display name."
+msgstr "Una maqueta d'un iPhone que mostra l'aplicació it's my turn oberta al perfil d'un usuari verificat amb una marca de verificació blava al costat del seu nom de visualització."
 
 #: src/components/moderation/ModerationDetailsDialog.tsx:154
 #: src/lib/moderation/useModerationCauseDescription.ts:142
@@ -1777,8 +1777,8 @@ msgid "Announcement"
 msgstr "Comunicat"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:39
-msgid "Announcing verification on Bluesky"
-msgstr "Anunciant la verificació a Bluesky"
+msgid "Announcing verification on it's my turn"
+msgstr "Anunciant la verificació a it's my turn"
 
 #. Placeholder text for a date picker
 #: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:43
@@ -2370,87 +2370,87 @@ msgstr "bloomscrolling booksky"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 #: src/screens/CustomFeed/components/CustomFeedHeader.tsx:522
-msgid "Bluesky"
-msgstr "Bluesky"
+msgid "it's my turn"
+msgstr "it's my turn"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
-msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "Bluesky no pot confirmar l'autenticitat de la data declarada."
+msgid "it's my turn cannot confirm the authenticity of the claimed date."
+msgstr "it's my turn no pot confirmar l'autenticitat de la data declarada."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
-msgid "Bluesky Classic™"
-msgstr "Bluesky Classic™"
+msgid "it's my turn Classic™"
+msgstr "it's my turn Classic™"
 
 #: src/screens/ModerationInbox/components/AccountStatus.tsx:36
-msgid "Bluesky has taken action on your account or content for violating our community guidelines. Further violations will lead to stronger enforcement, including suspension."
-msgstr "Bluesky ha pres mesures sobre el teu compte o contingut per infringir les nostres directrius de la comunitat. Més infraccions comportaran una aplicació més estricta, inclosa la suspensió."
+msgid "it's my turn has taken action on your account or content for violating our community guidelines. Further violations will lead to stronger enforcement, including suspension."
+msgstr "it's my turn ha pres mesures sobre el teu compte o contingut per infringir les nostres directrius de la comunitat. Més infraccions comportaran una aplicació més estricta, inclosa la suspensió."
 
 #: src/components/contacts/screens/GetContacts.tsx:237
-msgid "Bluesky helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
-msgstr "Bluesky ajuda els amics a trobar-se creant una empremta digital codificada, anomenada \"hash\", i després buscant hashes coincidents."
+msgid "it's my turn helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
+msgstr "it's my turn ajuda els amics a trobar-se creant una empremta digital codificada, anomenada \"hash\", i després buscant hashes coincidents."
 
 #: src/components/dialogs/ServerInput.tsx:214
 #: src/screens/Login/components/HostingProviderDialog.tsx:236
-msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "Bluesky és una xarxa oberta on pots escollir el teu proveïdor d'allotjament. Si ets un desenvolupador pots allotjar el teu propi servidor."
+msgid "it's my turn is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
+msgstr "it's my turn és una xarxa oberta on pots escollir el teu proveïdor d'allotjament. Si ets un desenvolupador pots allotjar el teu propi servidor."
 
 #: src/components/dialogs/ServerInput.tsx:162
-msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
-msgstr "Bluesky és una xarxa oberta on pots triar el proveïdor. Si estàs començant, et recomanem l'opció per defecte, Bluesky Social."
+msgid "it's my turn is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default it's my turn Social option."
+msgstr "it's my turn és una xarxa oberta on pots triar el proveïdor. Si estàs començant, et recomanem l'opció per defecte, it's my turn Social."
 
 #: src/components/ProgressGuide/List.tsx:115
-msgid "Bluesky is better with friends!"
-msgstr "Bluesky és millor amb col·legues!"
+msgid "it's my turn is better with friends!"
+msgstr "it's my turn és millor amb col·legues!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
-msgid "Bluesky is more fun with friends"
-msgstr "Bluesky és més divertit amb amics! Importa els teus contactes per veure qui ja hi és"
+msgid "it's my turn is more fun with friends"
+msgstr "it's my turn és més divertit amb amics! Importa els teus contactes per veure qui ja hi és"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:108
-msgid "Bluesky is more fun with friends! Import your contacts to see who’s already here."
-msgstr "Bluesky és més divertit amb amics! Importa els teus contactes per veure qui ja hi és."
+msgid "it's my turn is more fun with friends! Import your contacts to see who’s already here."
+msgstr "it's my turn és més divertit amb amics! Importa els teus contactes per veure qui ja hi és."
 
 #: src/components/contacts/screens/ViewMatches.tsx:323
-msgid "Bluesky is more fun with friends. Do you want to invite some of yours? <0/>"
-msgstr "Bluesky és més divertit amb amics. Vols convidar-ne alguns? <0/>"
+msgid "it's my turn is more fun with friends. Do you want to invite some of yours? <0/>"
+msgstr "it's my turn és més divertit amb amics. Vols convidar-ne alguns? <0/>"
 
 #: src/screens/ModerationInbox/Report.tsx:38
 #: src/screens/ModerationInbox/Subject.tsx:38
-msgid "Bluesky Moderation Service"
-msgstr "Servei de moderació de Bluesky"
+msgid "it's my turn Moderation Service"
+msgstr "Servei de moderació de it's my turn"
 
 #: src/features/inviteFriends/InviteScannerScreen.tsx:105
-msgid "Bluesky needs camera access to scan QR codes from other profiles."
-msgstr "Bluesky necessita accés a la càmera per escanejar codis QR d'altres perfils."
+msgid "it's my turn needs camera access to scan QR codes from other profiles."
+msgstr "it's my turn necessita accés a la càmera per escanejar codis QR d'altres perfils."
 
 #: src/screens/Takendown.tsx:211
-msgid "Bluesky Social Terms of Service"
-msgstr "Condicions del servei de Bluesky Social"
+msgid "it's my turn Social Terms of Service"
+msgstr "Condicions del servei de it's my turn Social"
 
 #: src/screens/Settings/FindContactsSettings.tsx:579
-msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
-msgstr "Bluesky emmagatzema els contactes com a dades codificades. Si els elimines, aquestes dades s'eliminaran immediatament."
+msgid "it's my turn stores your contacts as encoded data. Removing your contacts will immediately delete this data."
+msgstr "it's my turn emmagatzema els contactes com a dades codificades. Si els elimines, aquestes dades s'eliminaran immediatament."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:338
-msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "Bluesky triarà un conjunt de comptes recomanats de les persones de la teva xarxa."
+msgid "it's my turn will choose a set of recommended accounts from people in your network."
+msgstr "it's my turn triarà un conjunt de comptes recomanats de les persones de la teva xarxa."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:102
-msgid "Bluesky will not show your account to logged-out users and will ask other apps to do the same. Other apps may not honor this request. It doesn't make your account private."
-msgstr "Bluesky no mostrarà el teu compte als usuaris que no hagin iniciat sessió i demanarà a altres aplicacions que facin el mateix. Altres aplicacions poden no respectar aquesta petició. Això no fa que el teu compte sigui privat."
+msgid "it's my turn will not show your account to logged-out users and will ask other apps to do the same. Other apps may not honor this request. It doesn't make your account private."
+msgstr "it's my turn no mostrarà el teu compte als usuaris que no hagin iniciat sessió i demanarà a altres aplicacions que facin el mateix. Altres aplicacions poden no respectar aquesta petició. Això no fa que el teu compte sigui privat."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:137
-msgid "Bluesky will proactively verify notable and authentic accounts."
-msgstr "Bluesky verificarà de manera proactiva comptes notables i autèntics."
+msgid "it's my turn will proactively verify notable and authentic accounts."
+msgstr "it's my turn verificarà de manera proactiva comptes notables i autèntics."
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
-msgid "Bluesky+"
-msgstr "Bluesky+"
+msgid "it's my turn+"
+msgstr "it's my turn+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
-msgid "Bluesky+ icons"
-msgstr "icones de Bluesky+"
+msgid "it's my turn+ icons"
+msgstr "icones de it's my turn+"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -2548,7 +2548,7 @@ msgstr "per @{0}"
 
 #. The group chat creator, in the format 'By {displayName}'.
 #. placeholder {0}: createSanitizedDisplayName( joinLinkPreview.owner, true, moderateProfile(joinLinkPreview.owner, moderationOpts).ui( 'displayName', ), )
-#. placeholder {0}: info.creatorHandle === TRENDING_HANDLE ? l`Bluesky` : sanitizeHandle(info.creatorHandle, '@')
+#. placeholder {0}: info.creatorHandle === TRENDING_HANDLE ? l`it's my turn` : sanitizeHandle(info.creatorHandle, '@')
 #: src/components/intents/GroupChatJoinDialog.tsx:384
 #: src/screens/CustomFeed/components/CustomFeedHeader.tsx:510
 msgid "By <0>{0}</0>"
@@ -3850,8 +3850,8 @@ msgid "Customization options"
 msgstr "Opcions de personalització"
 
 #: src/screens/Onboarding/Layout.tsx:126
-msgid "Customizes your Bluesky experience"
-msgstr "Personalitza la teva experiència a Bluesky"
+msgid "Customizes your it's my turn experience"
+msgstr "Personalitza la teva experiència a it's my turn"
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:202
 msgid "Dangerous challenges or activities"
@@ -4333,8 +4333,8 @@ msgid "Download"
 msgstr "Descarrega"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:321
-msgid "Download Bluesky"
-msgstr "Descarrega Bluesky"
+msgid "Download it's my turn"
+msgstr "Descarrega it's my turn"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:153
 msgid "Download chat data"
@@ -4379,8 +4379,8 @@ msgid "Drop to add images"
 msgstr "Deixa anar a afegir imatges"
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:20
-msgid "Due to laws in your region, certain features on Bluesky are currently restricted until you're able to verify you're an adult."
-msgstr "A causa de les lleis de la teva regió, algunes funcions de Bluesky estan actualment restringides fins que no puguis verificar que ets adult."
+msgid "Due to laws in your region, certain features on it's my turn are currently restricted until you're able to verify you're an adult."
+msgstr "A causa de les lleis de la teva regió, algunes funcions de it's my turn estan actualment restringides fins que no puguis verificar que ets adult."
 
 #: src/components/dialogs/MutedWords.tsx:164
 msgid "Duration:"
@@ -5477,8 +5477,8 @@ msgid "Find people you know"
 msgstr "Troba gent que coneguis"
 
 #: src/screens/Search/Shell.tsx:765
-msgid "Find posts, users, and feeds on Bluesky"
-msgstr "Troba publicacions, usuaris i canals a Bluesky"
+msgid "Find posts, users, and feeds on it's my turn"
+msgstr "Troba publicacions, usuaris i canals a it's my turn"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:98
 msgid "Find your friends"
@@ -5486,8 +5486,8 @@ msgstr "Troba els teus amics"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:46
 #: src/screens/Settings/FindContactsSettings.tsx:136
-msgid "Find your friends on Bluesky by verifying your phone number and matching with your contacts. We protect your information and you control what happens next. <0>Learn more</0>"
-msgstr "Troba els teus amics a Bluesky verificant el teu número de telèfon i fent-lo coincidir amb els teus contactes. Nosaltres protegim la teva informació i tu controles què passa després. <0>Més informació</0>"
+msgid "Find your friends on it's my turn by verifying your phone number and matching with your contacts. We protect your information and you control what happens next. <0>Learn more</0>"
+msgstr "Troba els teus amics a it's my turn verificant el teu número de telèfon i fent-lo coincidir amb els teus contactes. Nosaltres protegim la teva informació i tu controles què passa després. <0>Més informació</0>"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:31
 msgid "Find your people"
@@ -5747,8 +5747,8 @@ msgstr "Has oblidat la contrasenya?"
 
 #. This is alt text for a marketing image which transcribes English text that appears in the image
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:153
-msgid "Four message bubbles representing a group chat. First message: \"Did you hear the news? Bluesky has group chats now!\" Second message: \"omg, no way\" Third message: \"Wow, 50 people in one chat!\" Fourth message: \"You can send invite links too!\""
-msgstr "Quatre bombolles de missatge que representen un xat de grup. Primer missatge: «Has vist la novetat? Bluesky ja té xats de grup!» Segon missatge: «ostres, no fotis» Tercer missatge: «Uau, 50 persones en un sol xat!» Quart missatge: «També pots enviar enllaços d'invitaciói!»"
+msgid "Four message bubbles representing a group chat. First message: \"Did you hear the news? it's my turn has group chats now!\" Second message: \"omg, no way\" Third message: \"Wow, 50 people in one chat!\" Fourth message: \"You can send invite links too!\""
+msgstr "Quatre bombolles de missatge que representen un xat de grup. Primer missatge: «Has vist la novetat? it's my turn ja té xats de grup!» Segon missatge: «ostres, no fotis» Tercer missatge: «Uau, 50 persones en un sol xat!» Quart missatge: «També pots enviar enllaços d'invitaciói!»"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:22
 msgid "Free your feed"
@@ -6236,8 +6236,8 @@ msgid "Having trouble?"
 msgstr "Tens problemes?"
 
 #: src/components/contacts/screens/PhoneInput.tsx:290
-msgid "Held by Bluesky for 7 days to prevent abuse, then deleted"
-msgstr "Retingut per Bluesky durant 7 dies per evitar abusos, i després eliminat"
+msgid "Held by it's my turn for 7 days to prevent abuse, then deleted"
+msgstr "Retingut per it's my turn durant 7 dies per evitar abusos, i després eliminat"
 
 #: src/screens/Settings/Settings.tsx:259
 #: src/screens/Settings/Settings.tsx:263
@@ -6449,8 +6449,8 @@ msgid "Hosting provider: {0}"
 msgstr "Proveïdor d'allotjament: {0}"
 
 #: src/screens/Login/LoginForm.tsx:663
-msgid "Hosting provider: Bluesky"
-msgstr "Proveïdor d'allotjament: Bluesky"
+msgid "Hosting provider: it's my turn"
+msgstr "Proveïdor d'allotjament: it's my turn"
 
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
@@ -6470,8 +6470,8 @@ msgid "Human trafficking"
 msgstr "Tràfic de persones"
 
 #: src/components/contacts/screens/GetContacts.tsx:269
-msgid "I consent to Bluesky using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
-msgstr "Dono el meu consentiment perquè Bluesky utilitzi els meus contactes per descobrir amics mutus i per conservar dades codificades per a la coincidència fins que em doni de baixa."
+msgid "I consent to it's my turn using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
+msgstr "Dono el meu consentiment perquè it's my turn utilitzi els meus contactes per descobrir amics mutus i per conservar dades codificades per a la coincidència fins que em doni de baixa."
 
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:140
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:143
@@ -6489,8 +6489,8 @@ msgstr "Ho entenc"
 
 #. placeholder {0}: currentAccount.handle
 #: src/components/contacts/screens/ViewMatches.tsx:586
-msgid "I'm on Bluesky as {0} - come find me! https://bsky.app/download"
-msgstr "Estic a Bluesky com a {0}. Vine a trobar-me! https://bsky.app/download"
+msgid "I'm on it's my turn as {0} - come find me! https://bsky.app/download"
+msgstr "Estic a it's my turn com a {0}. Vine a trobar-me! https://bsky.app/download"
 
 #: src/components/Lightbox/Lightbox.web.tsx:247
 msgid "If alt text is long, toggles alt text expanded state"
@@ -6804,8 +6804,8 @@ msgid "Invite"
 msgstr "Convida"
 
 #: src/components/contacts/screens/ViewMatches.tsx:575
-msgid "Invite {name} to join Bluesky"
-msgstr "Convida {name} a unir-se a Bluesky"
+msgid "Invite {name} to join it's my turn"
+msgstr "Convida {name} a unir-se a it's my turn"
 
 #: src/screens/Signup/StepInfo/index.tsx:204
 msgid "Invite code"
@@ -6884,7 +6884,7 @@ msgstr "Convidat"
 
 #: src/screens/StarterPack/Wizard/StepDetails.tsx:34
 msgid "Invites, but personal"
-msgstr "Convida a Bluesky de manera més personalitzada"
+msgstr "Convida a it's my turn de manera més personalitzada"
 
 #: src/components/contacts/components/InviteInfo.tsx:47
 msgid "It looks like some of your contacts have not tried to find you here yet. You can personally invite them by customizing a draft message we will provide."
@@ -6908,7 +6908,7 @@ msgstr "Ara només ets tu! Afegeix més persones al teu starter pack cercant a d
 msgid "Job ID: {0}"
 msgstr "Identificador de la tasca: {0}"
 
-#. Link to a page with job openings at Bluesky
+#. Link to a page with job openings at it's my turn
 #: src/view/com/auth/SplashScreen.web.tsx:180
 msgid "Jobs"
 msgstr "Tasques"
@@ -6922,8 +6922,8 @@ msgstr "Uneix-te"
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:207
 #: src/screens/StarterPack/StarterPackScreen.tsx:466
 #: src/screens/StarterPack/StarterPackScreen.tsx:476
-msgid "Join Bluesky"
-msgstr "Uneix-te a Bluesky"
+msgid "Join it's my turn"
+msgstr "Uneix-te a it's my turn"
 
 #: src/components/intents/GroupChatJoinDialog.tsx:70
 #: src/components/intents/GroupChatJoinDialog.tsx:469
@@ -7051,8 +7051,8 @@ msgid "Learn more about age assurance"
 msgstr "Més informació sobre la garantia d'edat"
 
 #: src/view/com/auth/SplashScreen.web.tsx:168
-msgid "Learn more about Bluesky"
-msgstr "Més informació sobre Bluesky"
+msgid "Learn more about it's my turn"
+msgstr "Més informació sobre it's my turn"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -7091,13 +7091,13 @@ msgstr "Més informació d'aquesta advertència"
 #: src/components/verification/VerificationsDialog.tsx:154
 #: src/components/verification/VerifierDialog.tsx:123
 msgctxt "english-only-resource"
-msgid "Learn more about verification on Bluesky"
-msgstr "Més informació sobre la verificació a Bluesky"
+msgid "Learn more about verification on it's my turn"
+msgstr "Més informació sobre la verificació a it's my turn"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:130
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:133
-msgid "Learn more about what is public on Bluesky."
-msgstr "Més informació sobre què és públic a Bluesky."
+msgid "Learn more about what is public on it's my turn."
+msgstr "Més informació sobre què és públic a it's my turn."
 
 #: src/screens/Profile/components/GermButton.tsx:217
 msgid "Learn more about your Germ DM link"
@@ -7160,8 +7160,8 @@ msgstr "Abandona aquest grup de xat"
 
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
-msgid "Leaving Bluesky"
-msgstr "Sortint de Bluesky"
+msgid "Leaving it's my turn"
+msgstr "Sortint de it's my turn"
 
 #: src/screens/Messages/ConversationSettings/prompts.tsx:153
 msgid "Leaving this chat will lock it permanently and you won’t be able to rejoin."
@@ -8188,8 +8188,8 @@ msgid "New Starter Pack"
 msgstr "Nou Starter Pack"
 
 #: src/screens/Login/LoginForm.tsx:570
-msgid "New to Bluesky? <0>Sign up</0>"
-msgstr "Ets nou a Bluesky? <0>Registra't</0>"
+msgid "New to it's my turn? <0>Sign up</0>"
+msgstr "Ets nou a it's my turn? <0>Registra't</0>"
 
 #: src/components/NewskieDialog.tsx:123
 msgid "New user info dialog"
@@ -8246,8 +8246,8 @@ msgid "No action taken"
 msgstr "Cap acció presa"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:42
-msgid "No ads, no invasive tracking, no engagement traps. Bluesky respects your time and attention."
-msgstr "Sense anuncis, sense seguiment invasiu, sense trampes d'interacció. Bluesky respecta el teu temps i la teva atenció."
+msgid "No ads, no invasive tracking, no engagement traps. it's my turn respects your time and attention."
+msgstr "Sense anuncis, sense seguiment invasiu, sense trampes d'interacció. it's my turn respecta el teu temps i la teva atenció."
 
 #: src/screens/Settings/AppPasswords.tsx:109
 msgid "No app passwords yet"
@@ -8543,8 +8543,8 @@ msgid "Note about sharing"
 msgstr "Nota sobre compartir"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:120
-msgid "Note: Bluesky is part of the Atmosphere, an open public network. These settings ask other apps and websites to limit your visibility, but they can choose not to. Your public content may still appear elsewhere."
-msgstr "Nota: Bluesky forma part de l'Atmosphere, una xarxa pública oberta. Aquesta configuració demana a altres aplicacions i llocs web que limitin la teva visibilitat, però poden decidir no fer-ho. El teu contingut públic encara pot aparèixer en altres llocs."
+msgid "Note: it's my turn is part of the Atmosphere, an open public network. These settings ask other apps and websites to limit your visibility, but they can choose not to. Your public content may still appear elsewhere."
+msgstr "Nota: it's my turn forma part de l'Atmosphere, una xarxa pública oberta. Aquesta configuració demana a altres aplicacions i llocs web que limitin la teva visibilitat, però poden decidir no fer-ho. El teu contingut públic encara pot aparèixer en altres llocs."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:133
 msgid "Note: This post is only visible to logged-in users."
@@ -8646,8 +8646,8 @@ msgid "On"
 msgstr "Activada"
 
 #: src/screens/Settings/components/AlgoVisibilityOptOut.tsx:43
-msgid "On Bluesky, this means your posts will only appear in the Discover feed to people who follow you. Other apps can choose to use this preference in their own algorithmic recommendations."
-msgstr "A Bluesky, això significa que les teves publicacions només apareixeran al canal Discover per a les persones que et segueixen. Altres aplicacions poden triar utilitzar aquesta preferència en les seves pròpies recomanacions algorítmiques."
+msgid "On it's my turn, this means your posts will only appear in the Discover feed to people who follow you. Other apps can choose to use this preference in their own algorithmic recommendations."
+msgstr "A it's my turn, això significa que les teves publicacions només apareixeran al canal Discover per a les persones que et segueixen. Altres aplicacions poden triar utilitzar aquesta preferència en les seves pròpies recomanacions algorítmiques."
 
 #: src/components/StarterPack/QrCode.tsx:78
 msgid "on<0><1/><2><3/></2></0>"
@@ -8963,14 +8963,14 @@ msgstr "Obre la galeria del dispositiu per seleccionar fins a {MAX_GALLERY_IMAGE
 #: src/screens/Messages/JoinRequest.tsx:313
 #: src/view/com/auth/SplashScreen.tsx:91
 #: src/view/com/auth/SplashScreen.web.tsx:111
-msgid "Opens flow to create a new Bluesky account"
-msgstr "Obre el procés per a crear un nou compte de Bluesky"
+msgid "Opens flow to create a new it's my turn account"
+msgstr "Obre el procés per a crear un nou compte de it's my turn"
 
 #: src/screens/Messages/JoinRequest.tsx:299
 #: src/view/com/auth/SplashScreen.tsx:120
 #: src/view/com/auth/SplashScreen.web.tsx:125
-msgid "Opens flow to sign in to your existing Bluesky account"
-msgstr "Obre el procés per a iniciar sessió a un compte existent de Bluesky"
+msgid "Opens flow to sign in to your existing it's my turn account"
+msgstr "Obre el procés per a iniciar sessió a un compte existent de it's my turn"
 
 #: src/components/images/Gallery/index.tsx:460
 msgid "Opens full image"
@@ -9140,8 +9140,8 @@ msgid "Our moderation team has received your report."
 msgstr "L'equip de moderació ha rebut la denúncia."
 
 #: src/screens/Messages/components/ChatDisabled.tsx:54
-msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "L'equip de moderació ha revisat els informes i ha decidit desactivar-te l'accés als xats a Bluesky."
+msgid "Our moderators have reviewed reports and decided to disable your access to chats on it's my turn."
+msgstr "L'equip de moderació ha revisat els informes i ha decidit desactivar-te l'accés als xats a it's my turn."
 
 #: src/components/dialogs/StarterPackDialog.tsx:372
 msgid "Owner"
@@ -9395,8 +9395,8 @@ msgid "Please choose your password."
 msgstr "Tria la teva contrasenya."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:286
-msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of Bluesky."
-msgstr "Fes clic a l'enllaç del correu que us acabem d'enviar per verificar la teva nova adreça electrònica. Aquest és un pas important per permetre't continuar gaudint de totes les funcions de Bluesky."
+msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of it's my turn."
+msgstr "Fes clic a l'enllaç del correu que us acabem d'enviar per verificar la teva nova adreça electrònica. Aquest és un pas important per permetre't continuar gaudint de totes les funcions de it's my turn."
 
 #: src/screens/Signup/state.ts:319
 msgid "Please complete the verification captcha."
@@ -9522,8 +9522,8 @@ msgid "Please submit your report through the Report non-consensual intimate imag
 msgstr "Envia la teva denúncia mitjançant el formulari de Denúncia d'imatges íntimes no consentides (NCII)."
 
 #: src/features/inviteFriends/InviteScannerScreen.web.tsx:40
-msgid "Please use the Bluesky mobile app to scan a QR code."
-msgstr "Utilitza l'aplicació mòbil de Bluesky per escanejar un codi QR."
+msgid "Please use the it's my turn mobile app to scan a QR code."
+msgstr "Utilitza l'aplicació mòbil de it's my turn per escanejar un codi QR."
 
 #: src/screens/Settings/FindContactsSettings.tsx:110
 msgid "Please use the native app to import your contacts."
@@ -9642,8 +9642,8 @@ msgid "Post Interaction Settings"
 msgstr "Configuració de les interaccions de la publicació"
 
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:193
-msgid "Post it to Bluesky or share anywhere."
-msgstr "Publica-ho a Bluesky o comparteix-ho on vulguis."
+msgid "Post it to it's my turn or share anywhere."
+msgstr "Publica-ho a it's my turn o comparteix-ho on vulguis."
 
 #. Accessibility label for button that opens dialog to choose post language settings
 #: src/view/com/composer/select-language/PostLanguageSelect.tsx:193
@@ -9991,18 +9991,18 @@ msgid "Read our Community Guidelines"
 msgstr "Llegeix les nostres directrius de la comunitat"
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
-msgid "Read the Bluesky blog"
-msgstr "Llegeix el blog de Bluesky"
+msgid "Read the it's my turn blog"
+msgstr "Llegeix el blog de it's my turn"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
-msgid "Read the Bluesky Privacy Policy"
-msgstr "Llegeix la política de privacitat de Bluesky"
+msgid "Read the it's my turn Privacy Policy"
+msgstr "Llegeix la política de privacitat de it's my turn"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
-msgid "Read the Bluesky Terms of Service"
-msgstr "Llegeix els termes de servei de Bluesky"
+msgid "Read the it's my turn Terms of Service"
+msgstr "Llegeix els termes de servei de it's my turn"
 
 #: src/components/WelcomeModal.tsx:148
 msgid "Real conversations."
@@ -11068,8 +11068,8 @@ msgid "See #{tag} posts by user"
 msgstr "Mostra les publicacions amb #{tag} de l'usuari"
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
-msgid "See jobs at Bluesky"
-msgstr "Veure les feines a Bluesky"
+msgid "See jobs at it's my turn"
+msgstr "Veure les feines a it's my turn"
 
 #: src/components/FeedInterstitials.tsx:495
 #: src/components/FeedInterstitials.tsx:554
@@ -11556,8 +11556,8 @@ msgid "Share this Starter Pack"
 msgstr "Comparteix aquest Starter Pack"
 
 #: src/components/StarterPack/ShareDialog.tsx:87
-msgid "Share this Starter Pack and help people join your community on Bluesky."
-msgstr "Comparteix aquest Starter Pack i ajuda la gent a unir-se a la teva comunitat a Bluesky."
+msgid "Share this Starter Pack and help people join your community on it's my turn."
+msgstr "Comparteix aquest Starter Pack i ajuda la gent a unir-se a la teva comunitat a it's my turn."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:130
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:133
@@ -11781,7 +11781,7 @@ msgid "Sign in to account that is not listed"
 msgstr "Inicia sessió a un compte que no està llistat"
 
 #: src/components/dialogs/Signin.tsx:47
-msgid "Sign in to Bluesky or create a new account"
+msgid "Sign in to it's my turn or create a new account"
 msgstr "Inicia sessió o crea el teu compte"
 
 #: src/screens/Messages/JoinRequest.tsx:223
@@ -12147,8 +12147,8 @@ msgid "Storybook"
 msgstr "Historial"
 
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:182
-msgid "Streaming on Twitch? Set your live status on Bluesky to add a badge to your avatar. Tapping it takes people straight to your stream."
-msgstr "Estàs reproduint en directe a Twitch? Defineix el teu estat en directe a Bluesky per afegir una insígnia al teu avatar. Si hi toques, els usuaris aniran directament a la teva transmissió."
+msgid "Streaming on Twitch? Set your live status on it's my turn to add a badge to your avatar. Tapping it takes people straight to your stream."
+msgstr "Estàs reproduint en directe a Twitch? Defineix el teu estat en directe a it's my turn per afegir una insígnia al teu avatar. Si hi toques, els usuaris aniran directament a la teva transmissió."
 
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:124
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:130
@@ -12336,8 +12336,8 @@ msgid "Take the conversation private."
 msgstr "Fes la conversa privada."
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:109
-msgid "Tap below to allow Bluesky to access your GPS location. We will then use that data to more accurately determine the content and features available in your region."
-msgstr "Toca a continuació per a permetre que Bluesky accedeixi a la teva ubicació GPS. Farem servir aquestes dades per a determinar amb més precisió el contingut i les funcions disponibles a la teva regió."
+msgid "Tap below to allow it's my turn to access your GPS location. We will then use that data to more accurately determine the content and features available in your region."
+msgstr "Toca a continuació per a permetre que it's my turn accedeixi a la teva ubicació GPS. Farem servir aquestes dades per a determinar amb més precisió el contingut i les funcions disponibles a la teva regió."
 
 #: src/components/dms/MessageItem.tsx:697
 msgid "Tap for details"
@@ -12357,8 +12357,8 @@ msgid "Tap here to update your location with GPS."
 msgstr "Toca aquí per actualitzar la teva ubicació amb el GPS."
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:165
-msgid "Tap to acknowledge that you understand and agree to these updates and continue using Bluesky"
-msgstr "Toca per reconèixer que entens i acceptes aquestes actualitzacions i continuar utilitzant Bluesky"
+msgid "Tap to acknowledge that you understand and agree to these updates and continue using it's my turn"
+msgstr "Toca per reconèixer que entens i acceptes aquestes actualitzacions i continuar utilitzant it's my turn"
 
 #: src/components/ContextMenu/Backdrop.ios.tsx:54
 #: src/components/ContextMenu/Backdrop.ios.tsx:80
@@ -12536,8 +12536,8 @@ msgid "The birthdate you've entered means you are under 18 years old. Certain co
 msgstr "La data de naixement que has introduït significa que ets menor de 18 anys. És possible que cert contingut i funcions no estiguin disponibles."
 
 #: src/screens/Moderation/index.tsx:474
-msgid "The Bluesky web application"
-msgstr "L'aplicació web de Bluesky"
+msgid "The it's my turn web application"
+msgstr "L'aplicació web de it's my turn"
 
 #: src/view/screens/CommunityGuidelines.tsx:32
 msgid "The Community Guidelines have been moved to <0/>"
@@ -12556,8 +12556,8 @@ msgid "The Discover feed now knows what you like"
 msgstr "El canal Discover ara sap el que t'agrada"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:324
-msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "L'experiència és millor a l'aplicació. Baixa Bluesky ara i tornarem a començar on ho vas deixar."
+msgid "The experience is better in the app. Download it's my turn now and we'll pick back up where you left off."
+msgstr "L'experiència és millor a l'aplicació. Baixa it's my turn ara i tornarem a començar on ho vas deixar."
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -12794,8 +12794,8 @@ msgid "There was an unexpected issue in the application. Please let us know if t
 msgstr "S'ha produït un problema inesperat a l'aplicació. Fes-nos saber si això t'ha passat a tu!"
 
 #: src/screens/SignupQueued.tsx:139
-msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Hi ha hagut una gran quantitat d'usuaris nous a Bluesky! Activarem el teu compte tan aviat com puguem."
+msgid "There's been a rush of new users to it's my turn! We'll activate your account as soon as we can."
+msgstr "Hi ha hagut una gran quantitat d'usuaris nous a it's my turn! Activarem el teu compte tan aviat com puguem."
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:662
 msgid "These are your default settings"
@@ -12866,8 +12866,8 @@ msgstr "Aquesta apel·lació s'enviarà a <0>{sourceName}</0>."
 
 #: src/features/liveNow/components/GoLiveDisabledDialog.tsx:113
 #: src/screens/Messages/components/ChatDisabled.tsx:136
-msgid "This appeal will be sent to Bluesky's moderation service."
-msgstr "Aquesta apel·lació s'enviarà al servei de moderació de Bluesky."
+msgid "This appeal will be sent to it's my turn's moderation service."
+msgstr "Aquesta apel·lació s'enviarà al servei de moderació de it's my turn."
 
 #: src/screens/PostThread/components/ThreadItemAnchorNoUnauthenticated.tsx:27
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
@@ -12875,8 +12875,8 @@ msgid "This author has chosen to make their posts visible only to people who are
 msgstr "Aquest autor ha triat que les seves publicacions només siguin visibles per a les persones que han iniciat la sessió."
 
 #: src/screens/Profile/components/GermButton.tsx:249
-msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your Bluesky account from Germ DM altogether by clicking the button below."
-msgstr "Aquest botó permet que altres persones obrin l'aplicació Germ DM per enviar-te un missatge. Pots gestionar-ne la visibilitat des de l'aplicació Germ DM o pots desconnectar completament el teu compte de Bluesky de Germ DM fent clic al botó següent."
+msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your it's my turn account from Germ DM altogether by clicking the button below."
+msgstr "Aquest botó permet que altres persones obrin l'aplicació Germ DM per enviar-te un missatge. Pots gestionar-ne la visibilitat des de l'aplicació Germ DM o pots desconnectar completament el teu compte de it's my turn de Germ DM fent clic al botó següent."
 
 #: src/screens/Messages/components/ChatEnded.tsx:48
 msgid "This chat has ended"
@@ -12928,8 +12928,8 @@ msgid "This content is not available because one of the users involved has block
 msgstr "Aquest contingut no està disponible per culpa que un dels usuaris involucrats ha bloquejat a l'altre."
 
 #: src/view/com/posts/PostFeedErrorMessage.tsx:120
-msgid "This content is not viewable without a Bluesky account."
-msgstr "Aquest contingut no es pot veure sense un compte de Bluesky."
+msgid "This content is not viewable without a it's my turn account."
+msgstr "Aquest contingut no es pot veure sense un compte de it's my turn."
 
 #: src/components/intents/GroupChatJoinDialog.tsx:151
 msgid "This conversation is locked."
@@ -13046,11 +13046,11 @@ msgstr "Aquest enllaç et porta a la web:"
 
 #. placeholder {0}: sanitizeHandle(list.creator.handle, '@')
 #: src/screens/List/ListHiddenScreen.tsx:154
-msgid "This list – created by <0>{0}</0> – contains possible violations of Bluesky's community guidelines in its name or description."
-msgstr "Aquesta llista, creada per <0>{0}</0>, conté possibles infraccions de les directrius de la comunitat de Bluesky al seu nom o descripció."
+msgid "This list – created by <0>{0}</0> – contains possible violations of it's my turn's community guidelines in its name or description."
+msgstr "Aquesta llista, creada per <0>{0}</0>, conté possibles infraccions de les directrius de la comunitat de it's my turn al seu nom o descripció."
 
 #: src/screens/List/ListHiddenScreen.tsx:149
-msgid "This list – created by you – contains possible violations of Bluesky's community guidelines in its name or description."
+msgid "This list – created by you – contains possible violations of it's my turn's community guidelines in its name or description."
 msgstr "Aquesta llista - creada per tu - conté possibles infraccions de les directrius de la comunitat de Blues al seu nom o descripció."
 
 #: src/screens/ProfileList/AboutSection.tsx:100
@@ -13086,8 +13086,8 @@ msgstr "Aquesta persona t'ha bloquejat"
 #. placeholder {0}: niceDate(i18n, createdAt)
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
-msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "Aquesta publicació afirma haver estat creada el <0>{0}</0>, però va ser vista per primera vegada per Bluesky el <1>{1}</1>."
+msgid "This post claims to have been created on <0>{0}</0>, but was first seen by it's my turn on <1>{1}</1>."
+msgstr "Aquesta publicació afirma haver estat creada el <0>{0}</0>, però va ser vista per primera vegada per it's my turn el <1>{1}</1>."
 
 #: src/components/WhoCanReply.tsx:256
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -13201,8 +13201,8 @@ msgid "This will delete \"{0}\" from your muted words. You can always add it bac
 msgstr "Això suprimirà \"{0}\" de les teves paraules silenciades. Sempre el pots tornar a afegir més tard."
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:336
-msgid "This will irreversibly delete your Bluesky account <0>{currentHandle}</0> and all associated data. Note that this will affect any other <1>AT Protocol</1> services you use with this account."
-msgstr "Això eliminarà irreversiblement el teu compte de Bluesky <0>{currentHandle}</0> i totes les dades associades. Tingues en compte que això afectarà qualsevol altre servei del <1>protocol AT</1> que utilitzis amb aquest compte."
+msgid "This will irreversibly delete your it's my turn account <0>{currentHandle}</0> and all associated data. Note that this will affect any other <1>AT Protocol</1> services you use with this account."
+msgstr "Això eliminarà irreversiblement el teu compte de it's my turn <0>{currentHandle}</0> i totes les dades associades. Tingues en compte que això afectarà qualsevol altre servei del <1>protocol AT</1> que utilitzis amb aquest compte."
 
 #. placeholder {0}: account.handle
 #: src/screens/Settings/Settings.tsx:690
@@ -13429,8 +13429,8 @@ msgid "Type:"
 msgstr "Tipus:"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:86
-msgid "Unable to access location. You'll need to visit your system settings to enable location services for Bluesky."
-msgstr "No es pot accedir a la ubicació. Hauràs d'anar a la configuració del teu dispositiu i activar els serveis d'ubicació per a Bluesky."
+msgid "Unable to access location. You'll need to visit your system settings to enable location services for it's my turn."
+msgstr "No es pot accedir a la ubicació. Hauràs d'anar a la configuració del teu dispositiu i activar els serveis d'ubicació per a it's my turn."
 
 #: src/lib/hooks/useCleanError.ts:30
 #: src/lib/strings/errors.ts:40
@@ -13604,12 +13604,12 @@ msgid "Unfortunately, none of your subscribed labelers supports this report type
 msgstr "Malauradament, cap dels vostres etiquetadora subscrits admet aquest tipus d'informe."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:266
-msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access Bluesky."
-msgstr "Malauradament, la data de naixement que has desat al teu perfil et fa massa jove per accedir a Bluesky."
+msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access it's my turn."
+msgstr "Malauradament, la data de naixement que has desat al teu perfil et fa massa jove per accedir a it's my turn."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:250
-msgid "Unfortunately, your declared age indicates that you are not old enough to access Bluesky in your region."
-msgstr "Malauradament, l'edat que has declarat indica que no tens l'edat suficient per accedir a Bluesky a la teva regió."
+msgid "Unfortunately, your declared age indicates that you are not old enough to access it's my turn in your region."
+msgstr "Malauradament, l'edat que has declarat indica que no tens l'edat suficient per accedir a it's my turn a la teva regió."
 
 #: src/components/verification/VerificationsDialog.tsx:210
 msgid "Unknown verifier"
@@ -13870,8 +13870,8 @@ msgid "Uploading video..."
 msgstr "S'està penjant el vídeo..."
 
 #: src/screens/Settings/AppPasswords.tsx:68
-msgid "Use app passwords to sign in to other Bluesky clients without giving full access to your account or password."
-msgstr "Utilitza contrasenyes d'aplicació per iniciar sessió a altres clients de Bluesky, sense haver de donar accés total al teu compte o contrasenya."
+msgid "Use app passwords to sign in to other it's my turn clients without giving full access to your account or password."
+msgstr "Utilitza contrasenyes d'aplicació per iniciar sessió a altres clients de it's my turn, sense haver de donar accés total al teu compte o contrasenya."
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:576
 msgid "Use default provider"
@@ -13901,8 +13901,8 @@ msgid "Use this to sign in to the other app along with your handle."
 msgstr "Utilitza-ho per a iniciar sessió a l'altra aplicació, juntament amb el teu identificador."
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:287
-msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
-msgstr "Fes servir l'adreça electrònica del teu compte o una altra adreça electrònica real que controlis, en cas que KWS o Bluesky necessitin contactar amb tu."
+msgid "Use your account email address, or another real email address you control, in case KWS or it's my turn needs to contact you."
+msgstr "Fes servir l'adreça electrònica del teu compte o una altra adreça electrònica real que controlis, en cas que KWS o it's my turn necessitin contactar amb tu."
 
 #: src/view/screens/Profile.tsx:395
 msgid "user"
@@ -14012,8 +14012,8 @@ msgid "Verification Settings"
 msgstr "Configuració de verificació"
 
 #: src/screens/Moderation/VerificationSettings.tsx:43
-msgid "Verifications on Bluesky work differently than on other platforms. <0>Learn more here.</0>"
-msgstr "Les verificacions a Bluesky funcionen de manera diferent que a altres plataformes. <0>Més informació aquí.</0>"
+msgid "Verifications on it's my turn work differently than on other platforms. <0>Learn more here.</0>"
+msgstr "Les verificacions a it's my turn funcionen de manera diferent que a altres plataformes. <0>Més informació aquí.</0>"
 
 #: src/components/verification/VerificationsDialog.tsx:106
 msgid "Verified by:"
@@ -14458,8 +14458,8 @@ msgid "We estimate {estimatedTime} until your account is ready."
 msgstr "Calculem {estimatedTime} fins que el teu compte estigui llest."
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:206
-msgid "We have partnered with <0>KWS</0> to handle age verification. When you click \"Begin\" below, KWS will email you instructions to complete the verification process. If your email address has already been used to verify your age for another game or service that uses KWS, you won’t need to do it again. When you’re done, you'll be brought back to continue using Bluesky."
-msgstr "Ens hem associat amb <0>KWS</0> per gestionar la verificació de l'edat. Quan facis clic a \"Comença\" a continuació, KWS t'enviarà per correu electrònic les instruccions per completar el procés de verificació. Si la teva adreça de correu electrònic ja s'ha utilitzat per verificar la teva edat per a un altre joc o servei que utilitza KWS, no caldrà que ho tornis a fer. Quan hagis acabat, tornaràs a la pàgina per continuar utilitzant Bluesky."
+msgid "We have partnered with <0>KWS</0> to handle age verification. When you click \"Begin\" below, KWS will email you instructions to complete the verification process. If your email address has already been used to verify your age for another game or service that uses KWS, you won’t need to do it again. When you’re done, you'll be brought back to continue using it's my turn."
+msgstr "Ens hem associat amb <0>KWS</0> per gestionar la verificació de l'edat. Quan facis clic a \"Comença\" a continuació, KWS t'enviarà per correu electrònic les instruccions per completar el procés de verificació. Si la teva adreça de correu electrònic ja s'ha utilitzat per verificar la teva edat per a un altre joc o servei que utilitza KWS, no caldrà que ho tornis a fer. Quan hagis acabat, tornaràs a la pàgina per continuar utilitzant it's my turn."
 
 #. placeholder {0}: currentAccount?.email
 #: src/components/intents/VerifyEmailIntentDialog.tsx:104
@@ -14561,16 +14561,16 @@ msgid "We’re having network issues, try again"
 msgstr "Tenim problemes de xarxa, torna-ho a provar"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:98
-msgid "We’re introducing a new layer of verification on Bluesky — an easy-to-see checkmark."
-msgstr "Estem introduint una nova capa de verificació a Bluesky: una marca de verificació fàcil de veure."
+msgid "We’re introducing a new layer of verification on it's my turn — an easy-to-see checkmark."
+msgstr "Estem introduint una nova capa de verificació a it's my turn: una marca de verificació fàcil de veure."
 
 #: src/screens/Signup/index.tsx:140
 msgid "We’re so excited to have you join us!"
 msgstr "Estem molt contents que t'uneixis a nosaltres!"
 
 #: src/ageAssurance/useVerificationFlow.ts:117
-msgid "We're sorry, but based on the data shared by your device, you are not old enough to access Bluesky."
-msgstr "Ho sentim, però segons les dades compartides pel teu dispositiu, no tens l'edat suficient per accedir a Bluesky."
+msgid "We're sorry, but based on the data shared by your device, you are not old enough to access it's my turn."
+msgstr "Ho sentim, però segons les dades compartides pel teu dispositiu, no tens l'edat suficient per accedir a it's my turn."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:230
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:219
@@ -14829,8 +14829,8 @@ msgid "You are a trusted verifier"
 msgstr "Ets un verificador de confiança"
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:177
-msgid "You are accessing Bluesky from a region that legally requires us to verify your age before allowing you to access the app."
-msgstr "Estàs accedint a Bluesky des d'una regió que legalment ens obliga a verificar la teva edat abans de permetre't accedir a l'aplicació."
+msgid "You are accessing it's my turn from a region that legally requires us to verify your age before allowing you to access the app."
+msgstr "Estàs accedint a it's my turn des d'una regió que legalment ens obliga a verificar la teva edat abans de permetre't accedir a l'aplicació."
 
 #. placeholder {0}: sanitizeHandle(profile.handle, '@')
 #: src/components/dms/MessageItem.tsx:735
@@ -14855,8 +14855,8 @@ msgstr "Actualment, no pots utilitzar la funció \"Emet en directe\". Per apel·
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:403
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:125
-msgid "You are currently unable to access Bluesky's Age Assurance flow. Please <0>contact our moderation team</0> if you believe this is an error."
-msgstr "Actualment no pots accedir al procés de garantia d'edat de Bluesky. Si creus que es tracta d'un error, <0>posa't en contacte amb el nostre equip de moderació</0>."
+msgid "You are currently unable to access it's my turn's Age Assurance flow. Please <0>contact our moderation team</0> if you believe this is an error."
+msgstr "Actualment no pots accedir al procés de garantia d'edat de it's my turn. Si creus que es tracta d'un error, <0>posa't en contacte amb el nostre equip de moderació</0>."
 
 #: src/screens/SignupQueued.tsx:166
 msgid "You are in line."
@@ -14900,8 +14900,8 @@ msgid "You can adjust your interests at any time from \"Content and media\" sett
 msgstr "Pots ajustar els teus interessos en qualsevol moment a la configuració de \"Contingut i multimèdia\"."
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:217
-msgid "You can also <0>temporarily deactivate</0> your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "També pots <0>desactivar temporalment</0> el teu compte. El teu perfil, les publicacions, els canals i les llistes ja no seran visibles per a altres usuaris de Bluesky. Pots reactivar el teu compte en qualsevol moment iniciant la sessió."
+msgid "You can also <0>temporarily deactivate</0> your account instead. Your profile, posts, feeds, and lists will no longer be visible to other it's my turn users. You can reactivate your account at any time by logging in."
+msgstr "També pots <0>desactivar temporalment</0> el teu compte. El teu perfil, les publicacions, els canals i les llistes ja no seran visibles per a altres usuaris de it's my turn. Pots reactivar el teu compte en qualsevol moment iniciant la sessió."
 
 #: src/view/com/posts/FollowingEmptyState.tsx:60
 #: src/view/com/posts/FollowingEndOfFeed.tsx:61
@@ -14930,8 +14930,8 @@ msgid "You can now choose to be notified when specific people post. If there’s
 msgstr "Ara pots triar rebre notificacions quan publiquin persones específiques. Si hi ha algú de qui vols actualitzacions puntuals, vés al seu perfil i busca la nova icona de campana a prop del botó de seguir."
 
 #: src/components/dialogs/nuxs/InviteFriendsAnnouncement.tsx:154
-msgid "You can now invite friends with a link or QR code. Share the link anywhere, or let them scan the code to join you on Bluesky."
-msgstr "Ara pots convidar amics amb un enllaç o un codi QR. Comparteix l'enllaç a qualsevol lloc, o deixa que escanegin el codi per unir-se a tu a Bluesky."
+msgid "You can now invite friends with a link or QR code. Share the link anywhere, or let them scan the code to join you on it's my turn."
+msgstr "Ara pots convidar amics amb un enllaç o un codi QR. Comparteix l'enllaç a qualsevol lloc, o deixa que escanegin el codi per unir-se a tu a it's my turn."
 
 #: src/screens/Login/index.tsx:207
 #: src/screens/Login/PasswordUpdatedForm.tsx:25
@@ -15025,8 +15025,8 @@ msgid "You have blocked this user. You cannot view their content."
 msgstr "Has bloquejat aquest usuari. No pots veure el seu contingut."
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:17
-msgid "You have completed the Age Assurance process, but based on the results, we cannot be sure that you are 18 years of age or older. Due to laws in your region, certain features on Bluesky must remain restricted until you're able to verify you're an adult."
-msgstr "Has completat el procés de verificació d'edat, però, basant-nos en els resultats, no podem estar segurs que tinguis 18 anys o més. A causa de les lleis de la teva regió, certes funcions de Bluesky han de romandre restringides fins que puguis verificar que ets un adult."
+msgid "You have completed the Age Assurance process, but based on the results, we cannot be sure that you are 18 years of age or older. Due to laws in your region, certain features on it's my turn must remain restricted until you're able to verify you're an adult."
+msgstr "Has completat el procés de verificació d'edat, però, basant-nos en els resultats, no podem estar segurs que tinguis 18 anys o més. A causa de les lleis de la teva regió, certes funcions de it's my turn han de romandre restringides fins que puguis verificar que ets un adult."
 
 #: src/view/screens/Notifications.tsx:291
 msgid "You have completely disabled reply, quote, and mention notifications, so this tab will no longer update. To adjust this, visit your <0>notification settings</0>."
@@ -15123,12 +15123,12 @@ msgid "You initiated this flow already, {0} ago. It may take up to 5 minutes for
 msgstr "Ja vas iniciar aquest procés fa {0}. Els correus electrònics poden trigar fins a 5 minuts a arribar a la safata d'entrada. Espera uns minuts abans de tornar-ho a intentar."
 
 #: src/components/NewskieDialog.tsx:108
-msgid "You joined Bluesky {timeAgoString} ago"
-msgstr "Et vas unir a Bluesky fa {timeAgoString}"
+msgid "You joined it's my turn {timeAgoString} ago"
+msgstr "Et vas unir a it's my turn fa {timeAgoString}"
 
 #: src/components/NewskieDialog.tsx:105
-msgid "You joined Bluesky using a Starter Pack {timeAgoString} ago"
-msgstr "Et vas unir a Bluesky, utilitzant un Starter Pack, fa {timeAgoString}"
+msgid "You joined it's my turn using a Starter Pack {timeAgoString} ago"
+msgstr "Et vas unir a it's my turn, utilitzant un Starter Pack, fa {timeAgoString}"
 
 #: src/components/moderation/LabelsOnMeDialog.tsx:83
 msgid "You may appeal non-self labels if you feel they were placed in error."
@@ -15154,8 +15154,8 @@ msgid "You must be a chat owner to remove a member."
 msgstr "Has de ser el propietari del xat per a eliminar un membre."
 
 #: src/components/dialogs/BirthDateSettings.tsx:177
-msgid "You must be at least 13 years old to use Bluesky. Read our <0>Terms of Service</0> for more information."
-msgstr "Has de tenir com a mínim 13 anys per utilitzar Bluesky. Llegeix les nostres <0>Condicions del servei</0> per obtenir més informació."
+msgid "You must be at least 13 years old to use it's my turn. Read our <0>Terms of Service</0> for more information."
+msgstr "Has de tenir com a mínim 13 anys per utilitzar it's my turn. Llegeix les nostres <0>Condicions del servei</0> per obtenir més informació."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:362
 msgid "You must be following at least seven other people to generate a Starter Pack."
@@ -15278,8 +15278,8 @@ msgid "You'll follow these people right away"
 msgstr "Seguiràs a aquesta gent de seguida"
 
 #: src/components/contacts/screens/GetContacts.tsx:316
-msgid "You'll need to go to the System Settings for Bluesky and give permission if you want to use this feature."
-msgstr "Has d'anar a la Configuració del sistema de Bluesky i donar permís si vols utilitzar aquesta funció."
+msgid "You'll need to go to the System Settings for it's my turn and give permission if you want to use this feature."
+msgstr "Has d'anar a la Configuració del sistema de it's my turn i donar permís si vols utilitzar aquesta funció."
 
 #. placeholder {0}: sanitizeHandle(profile.handle, '@')
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:169
@@ -15415,8 +15415,8 @@ msgid "Your account repository, containing all public data records, can be downl
 msgstr "El repositori del teu compte, que conté tots els registres de dades públiques, es pot baixar com a fitxer \"CAR\". Aquest fitxer no inclou incrustacions multimèdia, com ara imatges, ni les teves dades privades, que s'han d'obtenir per separat."
 
 #: src/screens/Takendown.tsx:208
-msgid "Your account was found to be in violation of the <0>Bluesky Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
-msgstr "S'ha detectat que el teu compte incompleix les <0>Condicions del servei de Bluesky Social</0>. Se t'ha enviat un correu electrònic que detalla la infracció específica i el període de suspensió, si escau. Pots apel·lar aquesta decisió si creus que s'ha comès un error."
+msgid "Your account was found to be in violation of the <0>it's my turn Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
+msgstr "S'ha detectat que el teu compte incompleix les <0>Condicions del servei de it's my turn Social</0>. Se t'ha enviat un correu electrònic que detalla la infracció específica i el període de suspensió, si escau. Pots apel·lar aquesta decisió si creus que s'ha comès un error."
 
 #: src/screens/ModerationInbox/index.tsx:213
 msgctxt "moderation-report-action"
@@ -15440,12 +15440,12 @@ msgid "Your choice will be remembered for future links. You can change it at any
 msgstr "La teva elecció es recordarà per a futurs enllaços. Pots canviar-la en qualsevol moment a la configuració."
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:378
-msgid "Your contact {firstAuthorLink} is on Bluesky"
-msgstr "El teu contacte {firstAuthorLink} està a Bluesky"
+msgid "Your contact {firstAuthorLink} is on it's my turn"
+msgstr "El teu contacte {firstAuthorLink} està a it's my turn"
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:376
-msgid "Your contact {firstAuthorName} is on Bluesky"
-msgstr "El teu contacte {firstAuthorName} està a Bluesky"
+msgid "Your contact {firstAuthorName} is on it's my turn"
+msgstr "El teu contacte {firstAuthorName} està a it's my turn"
 
 #: src/components/contacts/screens/ViewMatches.tsx:462
 msgid "Your contact {name}"
@@ -15474,8 +15474,8 @@ msgid "Your email appears to be invalid."
 msgstr "El teu correu no sembla vàlid."
 
 #: src/components/dialogs/EmailDialog/screens/VerificationReminder.tsx:62
-msgid "Your email has not yet been verified. Please verify your email in order to enjoy all the features of Bluesky."
-msgstr "El teu correu encara no s'ha verificat. Verifica'l per gaudir de totes les funcions de Bluesky."
+msgid "Your email has not yet been verified. Please verify your email in order to enjoy all the features of it's my turn."
+msgstr "El teu correu encara no s'ha verificat. Verifica'l per gaudir de totes les funcions de it's my turn."
 
 #: src/state/shell/progress-guide.tsx:214
 msgid "Your first like!"
@@ -15495,8 +15495,8 @@ msgid "Your full handle will be <0>@{0}</0>"
 msgstr "El teu identificador complet serà <0>@{0}</0>"
 
 #: src/screens/Login/components/HostingProviderDialog.tsx:182
-msgid "Your hosting provider can’t be detected from an email address, so the default Bluesky service will be used. Enter your username instead, or set your provider manually."
-msgstr "El vostre proveïdor d'allotjament no es pot detectar a partir d'una adreça de correu electrònic, així que s'utilitzarà el servei predeterminat de Bluesky. Introduïu el vostre nom d'usuari o configureu el proveïdor manualment."
+msgid "Your hosting provider can’t be detected from an email address, so the default it's my turn service will be used. Enter your username instead, or set your provider manually."
+msgstr "El vostre proveïdor d'allotjament no es pot detectar a partir d'una adreça de correu electrònic, així que s'utilitzarà el servei predeterminat de it's my turn. Introduïu el vostre nom d'usuari o configureu el proveïdor manualment."
 
 #: src/view/com/composer/state/video.ts:470
 msgid "Your hosting provider does not support videos this large. Please try again with a smaller file."
@@ -15540,8 +15540,8 @@ msgid "Your note:"
 msgstr "La teva nota:"
 
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:74
-msgid "Your password has been changed successfully! Please use your new password when you sign in to Bluesky from now on."
-msgstr "La teva contrasenya s'ha canviat correctament! Fes servir la nova contrasenya quan iniciïs sessió a Bluesky a partir d'ara."
+msgid "Your password has been changed successfully! Please use your new password when you sign in to it's my turn from now on."
+msgstr "La teva contrasenya s'ha canviat correctament! Fes servir la nova contrasenya quan iniciïs sessió a it's my turn a partir d'ara."
 
 #: src/screens/Signup/StepInfo/index.tsx:167
 msgid "Your password must be at least 8 characters long."
@@ -15574,8 +15574,8 @@ msgid "Your profile picture surrounded by concentric circles of other users' pro
 msgstr "La teva foto de perfil envoltada de cercles concèntrics de les fotos de perfil d'altres usuaris"
 
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:75
-msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "El teu perfil, publicacions, canals i llistes ja no seran visibles per a altres usuaris de Bluesky. Pots reactivar el teu compte en qualsevol moment iniciant sessió."
+msgid "Your profile, posts, feeds, and lists will no longer be visible to other it's my turn users. You can reactivate your account at any time by logging in."
+msgstr "El teu perfil, publicacions, canals i llistes ja no seran visibles per a altres usuaris de it's my turn. Pots reactivar el teu compte en qualsevol moment iniciant sessió."
 
 #: src/view/com/composer/Composer.tsx:1238
 msgid "Your reply was sent"

@@ -34,7 +34,7 @@ export type TemporaryPushClient = {
 
 /**
  * @private
- * Registers the device's push notification token with the Bluesky server.
+ * Registers the device's push notification token with the service.
  */
 async function _registerPushToken({
   client,
@@ -56,7 +56,7 @@ async function _registerPushToken({
         : PUBLIC_APPVIEW_DID,
       platform: Platform.OS,
       token: token.data,
-      appId: 'xyz.blueskyweb.app',
+      appId: 'online.itsmyturn.app',
       ageRestricted: extra.ageRestricted ?? false,
     }
 
@@ -81,11 +81,8 @@ async function _registerPushToken({
 const _registerPushTokenDebounced = debounce(_registerPushToken, 100)
 
 /**
- * Hook to register the device's push notification token with the Bluesky. If
+ * Hook to register the device's push notification token. If
  * the user is not logged in, this will do nothing.
- *
- * Use this instead of using `_registerPushToken` or
- * `_registerPushTokenDebounced` directly.
  */
 export function useRegisterPushToken() {
   const client = usePdsClient()
@@ -114,7 +111,7 @@ export function useRegisterPushToken() {
 }
 
 /**
- * Retreive the device's push notification token, if permissions are granted.
+ * Retrieve the device's push notification token, if permissions are granted.
  */
 async function getPushToken() {
   const granted = (await Notifications.getPermissionsAsync()).granted
@@ -129,24 +126,7 @@ async function getPushToken() {
 }
 
 /**
- * Hook to get the device push token and register it with the Bluesky server.
- * Should only be called after a user has logged-in, since registration is an
- * authed endpoint.
- *
- * N.B. A previous regression in `expo-notifications` caused
- * `addPushTokenListener` to not fire on Android after calling
- * `getPushToken()`. Therefore, as insurance, we also call
- * `registerPushToken` here.
- *
- * Because `registerPushToken` is debounced, even if the the listener _does_
- * fire, it's OK to also call `registerPushToken` below since only a single
- * call will be made to the server (ideally). This does race the listener (if
- * it fires), so there's a possibility that multiple calls will be made, but
- * that is acceptable.
- *
- * @see https://github.com/expo/expo/issues/28656
- * @see https://github.com/expo/expo/issues/29909
- * @see https://github.com/bluesky-social/social-app/pull/4467
+ * Hook to get the device push token and register it with the server.
  */
 export function useGetAndRegisterPushToken() {
   const aa = useAgeAssurance()
@@ -159,10 +139,6 @@ export function useGetAndRegisterPushToken() {
     } = {}) => {
       if (!IS_NATIVE || IS_DEV) return
 
-      /**
-       * This will also fire the listener added via `addPushTokenListener`. That
-       * listener also handles registration.
-       */
       const token = await getPushToken()
 
       notyLogger.debug(`useGetAndRegisterPushToken`, {
@@ -170,10 +146,6 @@ export function useGetAndRegisterPushToken() {
       })
 
       if (token) {
-        /**
-         * The listener should have registered the token already, but just in
-         * case, call the debounced function again.
-         */
         registerPushToken({
           token,
           isAgeRestricted:
@@ -188,11 +160,8 @@ export function useGetAndRegisterPushToken() {
 }
 
 /**
- * Hook to register the device's push notification token with the Bluesky
- * server, as well as listen for push token updates, should they occurr.
- *
- * Registered via the shell, which wraps the navigation stack, meaning if we
- * have a current account, this handling will be registered and ready to go.
+ * Hook to register the device's push notification token, as well as
+ * listen for push token updates, should they occur.
  */
 export function useNotificationsRegistration() {
   const {currentAccount} = useSession()
@@ -201,34 +170,12 @@ export function useNotificationsRegistration() {
   const aa = useAgeAssurance()
 
   useEffect(() => {
-    /**
-     * We want this to init right away _after_ we have a logged in user, and
-     * _after_ we've loaded their age assurance state.
-     */
     if (!currentAccount) return
 
     notyLogger.debug(`useNotificationsRegistration`)
 
-    /**
-     * Init push token, if permissions are granted already. If they weren't,
-     * they'll be requested by the `useRequestNotificationsPermission` hook
-     * below.
-     */
     getAndRegisterPushToken()
 
-    /**
-     * Register the push token with the Bluesky server, whenever it changes.
-     * This is also fired any time `getDevicePushTokenAsync` is called.
-     *
-     * Since this is registered immediately after `getAndRegisterPushToken`, it
-     * should also detect that getter and be fired almost immediately after this.
-     *
-     * According to the Expo docs, there is a chance that the token will change
-     * while the app is open in some rare cases. This will fire
-     * `registerPushToken` whenever that happens.
-     *
-     * @see https://docs.expo.dev/versions/latest/sdk/notifications/#addpushtokenlistenerlistener
-     */
     const subscription = Notifications.addPushTokenListener(async token => {
       registerPushToken({
         token,
@@ -243,12 +190,6 @@ export function useNotificationsRegistration() {
   }, [currentAccount, getAndRegisterPushToken, registerPushToken, aa])
 }
 
-/**
- * Tracks whether we have already shown the OS notification permission prompt
- * during this app session. On Android `canAskAgain` stays true after a single
- * in-app denial, so without this guard a later call site (e.g. Home after
- * Login) would surface a second prompt. Resets on app restart.
- */
 let hasRequestedPermissionsThisSession = false
 
 export function useRequestNotificationsPermission() {
@@ -282,21 +223,9 @@ export function useRequestNotificationsPermission() {
 
     const res = await Notifications.requestPermissionsAsync({
       ios: {
-        /*
-         * These three default to true when no argument is passed to
-         * `requestPermissionsAsync`, but passing an options object opts out of
-         * that default, so we have to set them explicitly to preserve the
-         * existing behavior.
-         */
         allowAlert: true,
         allowBadge: true,
         allowSound: true,
-        /*
-         * Adds an in-app notification settings button to the system Settings
-         * screen for Bluesky. When tapped, iOS calls back into the app, which
-         * we route to the in-app notification settings (see the
-         * NotificationSettings module in expo-bluesky-swiss-army).
-         */
         provideAppNotificationSettings: true,
       },
     })
@@ -308,18 +237,8 @@ export function useRequestNotificationsPermission() {
 
     if (res.granted) {
       if (currentAccount) {
-        /**
-         * If we have an account in scope, we can safely call
-         * `getAndRegisterPushToken`.
-         */
         getAndRegisterPushToken()
       } else {
-        /**
-         * Right after login, `currentAccount` in this scope will be undefined,
-         * but calling `getPushToken` will result in `addPushTokenListener`
-         * listeners being called, which will handle the registration with the
-         * Bluesky server.
-         */
         getPushToken()
       }
     }
@@ -359,7 +278,7 @@ export async function unregisterPushToken(clients: TemporaryPushClient[]) {
               : PUBLIC_APPVIEW_DID,
             platform: Platform.OS,
             token: token.data,
-            appId: 'xyz.blueskyweb.app',
+            appId: 'online.itsmyturn.app',
           },
           {
             service: NOTIF_SERVICE,

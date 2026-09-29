@@ -27,7 +27,7 @@ type SubmitTask = {
 }
 
 type ErrorField =
-  'invite-code' | 'email' | 'handle' | 'password' | 'date-of-birth'
+  | 'invite-code' | 'email' | 'handle' | 'password' | 'date-of-birth'
 
 export type SignupState = {
   analytics?: AnalyticsContextType
@@ -85,7 +85,7 @@ export const initialState: SignupState = {
 
   serviceUrl: DEFAULT_SERVICE,
   serviceDescription: undefined,
-  userDomain: '',
+  userDomain: 'itsmyturn.online',
   dateOfBirth: undefined,
   email: '',
   password: '',
@@ -149,14 +149,14 @@ export function reducer(s: SignupState, a: SignupAction): SignupState {
       break
     }
     case 'setServiceUrl': {
-      next.serviceUrl = a.value
+      next.serviceUrl = DEFAULT_SERVICE
       break
     }
     case 'setServiceDescription': {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
 
       next.serviceDescription = a.value
-      next.userDomain = a.value?.availableUserDomains[0] ?? ''
+      next.userDomain = a.value?.availableUserDomains[0] ?? 'itsmyturn.online'
       next.isLoading = false
       break
     }
@@ -305,7 +305,6 @@ export function useSubmitSignup() {
         })
       }
       const dateOfBirth = state.dateOfBirth
-      // This should never happen: StepInfo requires a birth date before advancing.
       if (!dateOfBirth) {
         dispatch({type: 'setStep', value: SignupStep.INFO})
         return dispatch({
@@ -332,9 +331,9 @@ export function useSubmitSignup() {
       try {
         await createAccount(
           {
-            service: state.serviceUrl,
+            service: DEFAULT_SERVICE,
             email: state.email,
-            handle: createFullHandle(state.handle, state.userDomain),
+            handle: createFullHandle(state.handle, state.userDomain || 'itsmyturn.online'),
             password: state.password,
             birthDate: dateOfBirth,
             inviteCode: state.inviteCode.trim(),
@@ -350,10 +349,6 @@ export function useSubmitSignup() {
           },
         )
 
-        /*
-         * Must happen last so that if the user has multiple tabs open and
-         * createAccount fails, one tab is not stuck in onboarding — Eric
-         */
         onboardingDispatch({type: 'start'})
       } catch (err) {
         const e = err as Error
@@ -371,8 +366,6 @@ export function useSubmitSignup() {
           return
         }
 
-        /* the error object, not its stringification: cleanError only extracts
-         * the clean server message from a live LexError */
         const error = cleanError(e)
         const isHandleError = error.toLowerCase().includes('handle')
 

@@ -22,8 +22,12 @@ export const Policies = ({
     return <View />
   }
 
-  const tos = validWebLink(serviceDescription.links?.termsOfService)
-  const pp = validWebLink(serviceDescription.links?.privacyPolicy)
+  const tos =
+    validWebLink(serviceDescription.links?.termsOfService) ||
+    'https://itsmyturn.online/tos'
+  const pp =
+    validWebLink(serviceDescription.links?.privacyPolicy) ||
+    'https://itsmyturn.online/privacy'
 
   if (!tos && !pp) {
     return (
@@ -43,14 +47,14 @@ export const Policies = ({
       <Trans>
         By creating an account you agree to the{' '}
         <InlineLinkText
-          label={_(msg`Read the Bluesky Terms of Service`)}
+          label={_(msg`Read the It's My Turn Terms of Service`)}
           key="tos"
           to={tos}>
           Terms of Service
         </InlineLinkText>{' '}
         and{' '}
         <InlineLinkText
-          label={_(msg`Read the Bluesky Privacy Policy`)}
+          label={_(msg`Read the It's My Turn Privacy Policy`)}
           key="pp"
           to={pp}>
           Privacy Policy
@@ -63,7 +67,7 @@ export const Policies = ({
       <Trans>
         By creating an account you agree to the{' '}
         <InlineLinkText
-          label={_(msg`Read the Bluesky Terms of Service`)}
+          label={_(msg`Read the It's My Turn Terms of Service`)}
           key="tos"
           to={tos}>
           Terms of Service
@@ -76,7 +80,7 @@ export const Policies = ({
       <Trans>
         By creating an account you agree to the{' '}
         <InlineLinkText
-          label={_(msg`Read the Bluesky Privacy Policy`)}
+          label={_(msg`Read the It's My Turn Privacy Policy`)}
           key="pp"
           to={pp}>
           Privacy Policy

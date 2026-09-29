@@ -30,12 +30,12 @@ async function checkIsOnline(): Promise<boolean> {
     setTimeout(() => {
       controller.abort()
     }, 15e3)
-    const res = await fetch('https://public.api.bsky.app/xrpc/_health', {
+    const res = await fetch('https://pds.itsmyturn.online/xrpc/_health', {
       cache: 'no-store',
       signal: controller.signal,
     })
     const json = await res.json()
-    if (json.version) {
+    if (json.version || res.ok) {
       return true
     } else {
       return false
@@ -99,11 +99,6 @@ focusManager.setEventListener(onFocus => {
 
     return () => subscription.remove()
   } else if (typeof window !== 'undefined' && window.addEventListener) {
-    // these handlers are a bit redundant but focus catches when the browser window
-    // is blurred/focused while visibilitychange seems to only handle when the
-    // window minimizes (both of them catch tab changes)
-    // there's no harm to redundant fires because refetchOnWindowFocus is only
-    // used with queries that employ stale data times
     const handler = () => onFocus()
     window.addEventListener('focus', handler, false)
     window.addEventListener('visibilitychange', handler, false)
@@ -118,19 +113,8 @@ const createQueryClient = () =>
   new QueryClient({
     defaultOptions: {
       queries: {
-        // NOTE
-        // refetchOnWindowFocus breaks some UIs (like feeds)
-        // so we only selectively want to enable this
-        // -prf
         refetchOnWindowFocus: false,
-        // Structural sharing between responses makes it impossible to rely on
-        // "first seen" timestamps on objects to determine if they're fresh.
-        // Disable this optimization so that we can rely on "first seen" timestamps.
         structuralSharing: false,
-        // We don't want to retry queries by default, because in most cases we
-        // want to fail early and show a response to the user. There are
-        // exceptions, and those can be made on a per-query basis. For others, we
-        // should give users controls to retry.
         retry: false,
       },
     },
@@ -152,8 +136,6 @@ export function QueryProvider({
 }) {
   return (
     <QueryProviderInner
-      // Enforce we never reuse cache between users.
-      // These two props MUST stay in sync.
       key={currentDid}
       currentDid={currentDid}>
       {children}
@@ -174,8 +156,6 @@ function QueryProviderInner({
       'Something is very wrong. Expected did to be stable due to key above.',
     )
   }
-  // We create the query client here so that it's scoped to a specific DID.
-  // Do not move the query client creation outside of this component.
   const [queryClient, _setQueryClient] = useState(() => createQueryClient())
   const [persistOptions, _setPersistOptions] = useState(() => {
     const storage = createPersistedQueryStorage(currentDid ?? 'logged-out')
@@ -191,9 +171,6 @@ function QueryProviderInner({
   })
   useEffect(() => {
     if (IS_WEB) {
-      // WARNING, BROKEN
-      // something since v5.32.0 causes OOMs. not important
-      // so disable for now
       // window.__TANSTACK_QUERY_CLIENT__ = queryClient
     }
   }, [queryClient])

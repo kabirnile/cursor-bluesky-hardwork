@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appID": "B3LX46C5HS.xyz.blueskyweb.app",
+        "appID": "YOUR_APPLE_TEAM_ID.online.itsmyturn.app",
         "paths": [
           "*"
         ]
@@ -10,6 +10,6 @@
     ]
   },
   "appclips": {
-    "apps": ["B3LX46C5HS.xyz.blueskyweb.app.AppClip"]
+    "apps": ["YOUR_APPLE_TEAM_ID.online.itsmyturn.app.AppClip"]
   }
 }

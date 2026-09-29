@@ -16,28 +16,19 @@ export const RQKEY = (identifier: string) => [RQKEY_ROOT, identifier]
 
 /**
  * Normalize a login identifier for detection: lowercase, trim, and strip a
- * single leading `@`. Handles are often typed as `@alice.example.com`; without
- * stripping the `@` the identifier looks like an email and detection is
- * disabled. A real email (`a@b.com`) has no leading `@`, so it still contains
- * an `@` after normalization and classifies as an email correctly.
+ * single leading `@`.
  */
 function normalizeIdentifier(identifier: string): string {
   return identifier.trim().toLowerCase().replace(/^@/, '')
 }
 
 /**
- * Per-request timeout for identity/PDS resolution network calls. Without it a
- * hanging plc.directory / did:web `.well-known` fetch (or handle resolution)
- * could leave the sign-in button spinning indefinitely.
+ * Per-request timeout for identity/PDS resolution network calls.
  */
 const RESOLVE_TIMEOUT = 20e3
 
 /**
- * Run a resolution network op with a per-request timeout. `run` receives an
- * `AbortSignal` that fires after `RESOLVE_TIMEOUT`, so callers that support
- * cancellation (fetch, the XRPC client) abort the in-flight request. A timeout
- * is surfaced as a network error so the caller fails the login rather than
- * silently falling back to the default service.
+ * Run a resolution network op with a per-request timeout.
  */
 async function withResolveTimeout<T>(
   run: (signal: AbortSignal) => Promise<T>,
@@ -57,10 +48,7 @@ async function withResolveTimeout<T>(
 }
 
 /**
- * Whether a non-ok HTTP status from an identity fetch is server-side or
- * transient (5xx or 429) rather than a genuine "not found / invalid" (other
- * 4xx). Transient statuses must not be treated as "identity doesn't exist",
- * since that would silently fall back to the default service.
+ * Check if HTTP status indicates transient error.
  */
 function isTransientHttpStatus(status: number): boolean {
   return status >= 500 || status === 429
@@ -68,17 +56,6 @@ function isTransientHttpStatus(status: number): boolean {
 
 /**
  * Resolve a DID document without a session.
- *
- * `com.atproto.identity.resolveIdentity` would give us the DID doc in a single
- * call, but it requires auth on the entryway and is not implemented on the
- * appview, so it is unusable here. Instead we resolve the DID doc directly:
- * `did:plc` via the PLC directory, `did:web` via its `.well-known` endpoint.
- *
- * Returns `null` for a genuine "not found / invalid" response (a 4xx or an
- * unsupported DID method). Throws a network error for transient server-side
- * failures (5xx, 429) so the caller fails the login rather than silently
- * submitting the password to the default service during, e.g., a plc.directory
- * blip.
  */
 async function resolveDidDoc(
   did: string,
@@ -102,11 +79,6 @@ async function resolveDidDoc(
   }
   if (did.startsWith('did:web:')) {
     const domain = did.slice('did:web:'.length)
-    /*
-     * did:web method-specific ids are domains; a `:` would indicate a path
-     * component, which the network does not support. Reject those rather than
-     * building a malformed URL.
-     */
     if (domain.includes(':')) return null
     const res = await fetch(
       `https://${decodeURIComponent(domain)}/.well-known/did.json`,
@@ -135,35 +107,23 @@ async function resolveDidDoc(
 
 /**
  * Resolve the identity behind a given identifier (handle or DID).
- *
- * Returns the resolved DID together with the PDS URL declared by its DID
- * document (verbatim). `pdsUrl` is `null` when the DID resolved but its
- * document declares no PDS endpoint. Returns `null` altogether when the
- * identifier itself cannot be resolved (unknown handle, broken identity,
- * unsupported DID method).
- *
- * Rethrows only on genuine network errors, so a "not found" during typing
- * stays quiet.
+ * Enforces lock to the custom PDS instance.
  */
 export async function resolvePdsForIdentifier(
   identifier: string,
 ): Promise<{did: string; pdsUrl: string | null} | null> {
   const norm = normalizeIdentifier(identifier)
-  /*
-   * Resolution runs without a session, so this uses the public appview client
-   * rather than a session-scoped one. It matches the unauthenticated,
-   * unproxied public agent this previously constructed by hand.
-   */
   const client = getPublicAppviewClient()
   try {
     let did: string
     if (norm.startsWith('did:')) {
       did = norm
     } else {
+      const handle = norm.includes('.') ? norm : `${norm}.itsmyturn.online`
       const data = await withResolveTimeout(signal =>
         client.call(
           com.atproto.identity.resolveHandle,
-          {handle: norm as HandleString},
+          {handle: handle as HandleString},
           {signal},
         ),
       )
@@ -178,66 +138,29 @@ export async function resolvePdsForIdentifier(
       did,
       foundDoc: !!doc,
     })
-    if (!doc) return null
-    const pds = getPdsEndpoint(doc)
-    logger.debug('pds-detection: got PDS endpoint', {
-      did,
-      pds: pds ?? null,
-    })
-    return {did, pdsUrl: pds ?? null}
+    return {did, pdsUrl: DEFAULT_SERVICE}
   } catch (err) {
-    logger.debug('pds-detection: resolution failed', {
+    logger.debug('pds-detection: resolution failed, defaulting to local PDS', {
       identifier: norm,
       error: String(err),
       isNetworkError: isNetworkError(err),
     })
     if (isNetworkError(err)) throw err
-    return null
+    return {did: norm, pdsUrl: DEFAULT_SERVICE}
   }
 }
 
-/**
- * The detection lifecycle for a login identifier, derived from the debounced
- * resolution query plus any manual override.
- */
 export type HostingProviderState =
-  /** Empty, or not yet a plausible handle (e.g. a bare username). */
   | {status: 'idle'}
-  /** The identifier is an email address, so PDS detection is skipped. */
   | {status: 'email'}
-  /** A resolution query is in flight for the current identifier. */
   | {status: 'detecting'}
-  /** Resolved to a PDS endpoint. */
   | {status: 'detected'; pdsUrl: string}
-  /**
-   * The handle genuinely did not resolve (unknown handle, broken identity).
-   * This is the only state that should admonish the user about typos.
-   */
   | {status: 'unresolved'}
-  /**
-   * Resolution failed for a network/transient reason (offline, plc.directory
-   * 5xx). Distinct from `unresolved` because it is not evidence the handle is
-   * invalid, so the UI must not suggest a typo. Pressing "Sign in" surfaces the
-   * connectivity error via `resolveService` re-throwing.
-   */
   | {status: 'error'}
-  /** The user manually selected a provider. */
   | {status: 'overridden'; pdsUrl: string}
 
 /**
- * Autodetects the hosting provider (PDS) for a login identifier as the user
- * types, with a manual override escape hatch.
- *
- * The effective `service` is `override ?? detected ?? defaultService`.
- * `resolveService` awaits any in-flight detection against the current
- * (non-debounced) identifier so that pressing "Sign in" mid-detection waits
- * for resolution and then continues. It resolves to `{service, did}`: the
- * service to log in against, plus the identifier's resolved DID (`null` when
- * no DID was resolved - manual override, email, or bare username). It falls
- * back to `defaultService` for anything that legitimately can't resolve a PDS
- * (emails, bare usernames, unknown handles) but rethrows genuine network
- * errors, so a flaky connection fails the login instead of silently
- * submitting to the default server.
+ * Locks the hosting provider to your custom instance.
  */
 export function useHostingProvider({
   identifier,
@@ -276,65 +199,50 @@ export function useHostingProvider({
 
   let state: HostingProviderState
   if (override != null) {
-    state = {status: 'overridden', pdsUrl: override}
+    state = {status: 'overridden', pdsUrl: DEFAULT_SERVICE}
   } else if (isEmail) {
     state = {status: 'email'}
   } else if (!isPlausibleHandle) {
     state = {status: 'idle'}
   } else if (normalized !== debounced) {
-    /*
-     * The identifier changed but the debounce hasn't caught up, so the query is
-     * still keyed on the old value. Report 'detecting' rather than the stale
-     * query state, which would otherwise show the previous handle's PDS as
-     * 'detected'.
-     */
     state = {status: 'detecting'}
   } else if (query.isPending || query.isFetching) {
     state = {status: 'detecting'}
   } else if (query.isError && isNetworkError(query.error)) {
-    /*
-     * A network/transient failure is not evidence the handle is invalid, so
-     * report 'error' instead of 'unresolved' to avoid a misleading typo hint.
-     */
     state = {status: 'error'}
-  } else if (query.isError || query.data == null || query.data.pdsUrl == null) {
-    state = {status: 'unresolved'}
+  } else if (query.isError || query.data == null) {
+    state = {status: 'detected', pdsUrl: DEFAULT_SERVICE}
   } else {
-    state = {status: 'detected', pdsUrl: query.data.pdsUrl}
+    state = {status: 'detected', pdsUrl: DEFAULT_SERVICE}
   }
 
-  const service =
-    override ?? (state.status === 'detected' ? state.pdsUrl : defaultService)
+  const service = DEFAULT_SERVICE
 
   return {
     state,
     service,
-    override: (url: string) => setOverride(url),
+    override: (_url: string) => setOverride(DEFAULT_SERVICE),
     clearOverride: () => setOverride(null),
     resolveService: async (currentIdentifier: string) => {
-      if (override != null) return {service: override, did: null}
       const norm = normalizeIdentifier(currentIdentifier)
-      // Emails and bare usernames can't resolve a PDS on their own.
-      if (norm.includes('@')) return {service: defaultService, did: null}
-      if (!norm.includes('.') && !norm.startsWith('did:')) {
-        return {service: defaultService, did: null}
+      if (norm.includes('@') || (!norm.includes('.') && !norm.startsWith('did:'))) {
+        return {service: DEFAULT_SERVICE, did: null}
       }
-      /*
-       * `resolvePdsForIdentifier` only throws on genuine network errors;
-       * anything unresolvable (unknown handle, broken identity) resolves to
-       * `null`, which we treat as the default service. Network errors are left
-       * to propagate so the caller can fail the login rather than silently
-       * submit the password to the wrong server.
-       */
-      const resolved = await queryClient.ensureQueryData({
-        queryKey: RQKEY(norm),
-        queryFn: () => resolvePdsForIdentifier(norm),
-        staleTime: STALE.MINUTES.FIVE,
-      })
-      // The DID is known even when its doc declares no PDS endpoint.
-      return {
-        service: resolved?.pdsUrl ?? defaultService,
-        did: resolved?.did ?? null,
+      try {
+        const resolved = await queryClient.ensureQueryData({
+          queryKey: RQKEY(norm),
+          queryFn: () => resolvePdsForIdentifier(norm),
+          staleTime: STALE.MINUTES.FIVE,
+        })
+        return {
+          service: DEFAULT_SERVICE,
+          did: resolved?.did ?? null,
+        }
+      } catch {
+        return {
+          service: DEFAULT_SERVICE,
+          did: null,
+        }
       }
     },
   }

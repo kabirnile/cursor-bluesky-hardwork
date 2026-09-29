@@ -69,7 +69,7 @@ export const SplashScreen = ({
           style={[a.justify_center, a.align_center, {gap: 6, paddingTop: 46}]}>
           <Logo width={76} fill={styles.logoFill} style={styles.logoShadow} />
           <Logotype
-            width={91}
+            width={110}
             fill={styles.logoFill}
             style={styles.logoShadow}
           />
@@ -88,7 +88,7 @@ export const SplashScreen = ({
             }}
             label={_(msg`Create new account`)}
             accessibilityHint={_(
-              msg`Opens flow to create a new Bluesky account`,
+              msg`Opens flow to create a new It's My Turn account`,
             )}
             size="large"
             color={isDarkMode ? 'secondary_inverted' : 'secondary'}
@@ -117,7 +117,7 @@ export const SplashScreen = ({
             }}
             label={_(msg`Sign in`)}
             accessibilityHint={_(
-              msg`Opens flow to sign in to your existing Bluesky account`,
+              msg`Opens flow to sign in to your existing It's My Turn account`,
             )}
             size="large"
             hoverStyle={{opacity: 0.5}}>

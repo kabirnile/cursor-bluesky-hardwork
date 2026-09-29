@@ -18,7 +18,7 @@ type SegmentedControlOptions = 'automatic' | 'manual'
 
 /**
  * Login-specific fork of the server-input dialog. Instead of picking between
- * "Bluesky" and a custom URL, the user chooses between "Automatic" (the PDS is
+ * "It's My Turn" and a custom URL, the user chooses between "Automatic" (the PDS is
  * autodetected from the typed identifier) and "Manual" (an explicit PDS URL).
  *
  * Selecting Automatic clears any manual override; selecting Manual with a
@@ -181,7 +181,7 @@ function DialogInner({
               {isEmail ? (
                 <Trans>
                   Your hosting provider can’t be detected from an email address,
-                  so the default Bluesky service will be used. Enter your
+                  so the default It's My Turn service will be used. Enter your
                   username instead, or set your provider manually.
                 </Trans>
               ) : (
@@ -234,7 +234,7 @@ function DialogInner({
             nativeID="dialog-description"
             style={[t.atoms.text_contrast_medium, a.text_sm, a.leading_snug]}>
             <Trans>
-              Bluesky is an open network where you can choose your hosting
+              It's My Turn is an open network where you can choose your hosting
               provider. If you're a developer, you can host your own server.
             </Trans>{' '}
             <InlineLinkText
