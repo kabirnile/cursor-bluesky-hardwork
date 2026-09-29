@@ -1,5 +1,4 @@
-﻿@'
-name: Build Android APK
+﻿name: Build Android APK
 
 on:
   push:
@@ -30,8 +29,7 @@ jobs:
           java-version: '17'
 
       - name: Accept Android SDK Licenses
-        run: |
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -43,16 +41,10 @@ jobs:
 
       - name: Fix AGP 8 SoftwareComponent Crash
         run: |
-          find . -name "build.gradle" -type f | while read file; do
-            if grep -q -E "com\.android\.library|expo\.modules\.plugin" "$file"; then
+          find android/ node_modules/ -name "build.gradle" -type f | while read file; do
+            if grep -q -E "com\.android\.library" "$file"; then
               echo "" >> "$file"
-              echo "android { publishing { singleVariant('release'); singleVariant('debug') } }" >> "$file"
-            fi
-          done
-          find . -name "build.gradle.kts" -type f | while read file; do
-            if grep -q -E "com\.android\.library|expo\.modules\.plugin" "$file"; then
-              echo "" >> "$file"
-              echo 'android { publishing { singleVariant("release"); singleVariant("debug") } }' >> "$file"
+              echo "android { publishing { singleVariant('release') { }; singleVariant('debug') { } } }" >> "$file"
             fi
           done
 
@@ -68,4 +60,4 @@ jobs:
         with:
           name: itsmyturn-app-debug
           path: android/app/build/outputs/apk/debug/*.apk
-'@ | Out-File -FilePath ".github\workflows\build-apk.yml" -Encoding utf8
+          
